@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct OnboardingSlideList {
-    let slides: [OnboardingSlide]
-}
-
-struct OnboardingSlide {
+struct Slide {
     
     let animationName: String
     let title: String

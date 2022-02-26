@@ -8,8 +8,9 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-    private var index: Int = 0
-    private var slidesListViewModel: OnboardingSlideListViewModel!
+    
+    private var slideIndex: Int = 0
+    private var slidesListViewModel = SlideListViewModel()
     
     //MARK: - UI Elements
     
@@ -60,22 +61,8 @@ class OnboardingViewController: UIViewController {
         layout()
         
         setupCollectionView()
-        setupSlides()
+
     }
-    
-    func setupSlides() {
-        
-        let slides: [OnboardingSlide] = [
-            OnboardingSlide(animationName: "box-floating", title: "Screen number 1"),
-            OnboardingSlide(animationName: "box-floating", title: "Screen 2"),
-            OnboardingSlide(animationName: "box-floating", title: "Screen 3"),
-        ]
-        
-        self.slidesListViewModel = OnboardingSlideListViewModel(slides: slides)
-        
-        self.pageControl.numberOfPages = slides.count
-    }
-    
 }
 
 //MARK: - Style & Layout UI
@@ -89,6 +76,8 @@ extension OnboardingViewController {
         view.addSubview(collectionView)
         view.addSubview(pageControl)
         view.addSubview(nextButton)
+        
+        self.pageControl.numberOfPages = slidesListViewModel.numberOfPages()
         
     }
     
@@ -122,27 +111,26 @@ extension OnboardingViewController {
         
         let slidesCount = slidesListViewModel.slides.count - 1
         
-        self.index += 1
+        self.slideIndex += 1
         
-        if index <= slidesCount {
+        if slideIndex <= slidesCount {
             
-            pageControl.currentPage = index
+            pageControl.currentPage = slideIndex
             
             collectionView.isPagingEnabled = false
             collectionView.scrollToItem(
-                at: IndexPath(item: index, section: 0),
+                at: IndexPath(item: slideIndex, section: 0),
                 at: .centeredHorizontally,
                 animated: true
             )
             collectionView.isPagingEnabled = true
             
-            if index == slidesCount {
+            if slideIndex == slidesCount {
                 nextButton.setTitle("Get Started", for: [])
             }
         }
-
         
-        if index > slidesCount {
+        if slideIndex > slidesCount {
             let vc = ViewController()
             
             vc.modalPresentationStyle = .fullScreen

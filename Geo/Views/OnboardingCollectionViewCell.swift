@@ -18,8 +18,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.contentMode = .scaleAspectFill
+        stackView.spacing = 16
         stackView.alignment = .center
         return stackView
     }()
@@ -28,14 +27,15 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
         let animationView = AnimationView()
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.loopMode = .loop
-                
+        animationView.animationSpeed = 0.6
+        
         return animationView
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome to Geo!"
+        label.font = .rounded(ofSize: 24, weight: .medium)
         
         return label
     }()
@@ -68,13 +68,16 @@ extension OnboardingCollectionViewCell {
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            
+            animationView.widthAnchor.constraint(equalToConstant: 300),
+            animationView.heightAnchor.constraint(equalToConstant: 300),
         ])
         
         
     }
     
-    func configure(with viewModel: OnboardingSlideViewModel) {
+    func configure(with viewModel: SlideViewModel) {
         
         animationView.animation = Animation.named(viewModel.animationName)
         titleLabel.text = viewModel.title
