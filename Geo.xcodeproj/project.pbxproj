@@ -12,9 +12,16 @@
 		2DF1C3DA27C913A400D665AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3D927C913A400D665AB /* ViewController.swift */; };
 		2DF1C3DF27C913A600D665AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C3DE27C913A600D665AB /* Assets.xcassets */; };
 		2DF1C3E227C913A600D665AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */; };
+		2DF1C3F727CA249900D665AB /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3F627CA249900D665AB /* OnboardingSlide.swift */; };
+		2DF1C3F927CA254000D665AB /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3F827CA254000D665AB /* OnboardingViewModel.swift */; };
+		2DF1C3FB27CA255900D665AB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3FA27CA255900D665AB /* OnboardingViewController.swift */; };
+		2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */; };
+		2DF1C40027CA482E00D665AB /* box-floating.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C3FF27CA482E00D665AB /* box-floating.json */; };
+		5B8E4D639F51AF1123DBE444 /* Pods_Geo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF1C3D227C913A400D665AB /* Geo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF1C3D527C913A400D665AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DF1C3D727C913A400D665AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -22,6 +29,13 @@
 		2DF1C3DE27C913A600D665AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DF1C3E127C913A600D665AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DF1C3E327C913A600D665AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DF1C3F627CA249900D665AB /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		2DF1C3F827CA254000D665AB /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		2DF1C3FA27CA255900D665AB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		2DF1C3FF27CA482E00D665AB /* box-floating.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "box-floating.json"; sourceTree = "<group>"; };
+		5199658F509CC1319465F7E5 /* Pods-Geo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geo.debug.xcconfig"; path = "Target Support Files/Pods-Geo/Pods-Geo.debug.xcconfig"; sourceTree = "<group>"; };
+		88B2C63C7BD5DE4DBFE1EA42 /* Pods-Geo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geo.release.xcconfig"; path = "Target Support Files/Pods-Geo/Pods-Geo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8E4D639F51AF1123DBE444 /* Pods_Geo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +55,8 @@
 			children = (
 				2DF1C3D427C913A400D665AB /* Geo */,
 				2DF1C3D327C913A400D665AB /* Products */,
+				B154F0A2FDBBDA29AD85B37F /* Pods */,
+				BE3A9A5F1D05CF70AF105B3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF1C3D927C913A400D665AB /* ViewController.swift */,
+				2DF1C3F127CA219700D665AB /* Onboarding */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -75,6 +93,7 @@
 		2DF1C3EA27C9149A00D665AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1C3F627CA249900D665AB /* OnboardingSlide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -82,6 +101,7 @@
 		2DF1C3EB27C9149F00D665AB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1C3F827CA254000D665AB /* OnboardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -97,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */,
+				2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,12 +125,46 @@
 		2DF1C3EF27C914F600D665AB /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1C3FE27CA481E00D665AB /* LottieAnimations */,
 				2DF1C3D527C913A400D665AB /* AppDelegate.swift */,
 				2DF1C3D727C913A400D665AB /* SceneDelegate.swift */,
 				2DF1C3DE27C913A600D665AB /* Assets.xcassets */,
 				2DF1C3E327C913A600D665AB /* Info.plist */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		2DF1C3F127CA219700D665AB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C3FA27CA255900D665AB /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		2DF1C3FE27CA481E00D665AB /* LottieAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C3FF27CA482E00D665AB /* box-floating.json */,
+			);
+			name = LottieAnimations;
+			sourceTree = "<group>";
+		};
+		B154F0A2FDBBDA29AD85B37F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5199658F509CC1319465F7E5 /* Pods-Geo.debug.xcconfig */,
+				88B2C63C7BD5DE4DBFE1EA42 /* Pods-Geo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BE3A9A5F1D05CF70AF105B3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,9 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DF1C3E627C913A600D665AB /* Build configuration list for PBXNativeTarget "Geo" */;
 			buildPhases = (
+				8F267AA5CE7C5CC2C59D67D2 /* [CP] Check Pods Manifest.lock */,
 				2DF1C3CE27C913A400D665AB /* Sources */,
 				2DF1C3CF27C913A400D665AB /* Frameworks */,
 				2DF1C3D027C913A400D665AB /* Resources */,
+				6B6A71201BCD722ED9AC2E45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,19 +229,66 @@
 			files = (
 				2DF1C3E227C913A600D665AB /* LaunchScreen.storyboard in Resources */,
 				2DF1C3DF27C913A600D665AB /* Assets.xcassets in Resources */,
+				2DF1C40027CA482E00D665AB /* box-floating.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B6A71201BCD722ED9AC2E45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Geo/Pods-Geo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Geo/Pods-Geo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Geo/Pods-Geo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F267AA5CE7C5CC2C59D67D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Geo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2DF1C3CE27C913A400D665AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF1C3F927CA254000D665AB /* OnboardingViewModel.swift in Sources */,
+				2DF1C3FB27CA255900D665AB /* OnboardingViewController.swift in Sources */,
 				2DF1C3DA27C913A400D665AB /* ViewController.swift in Sources */,
 				2DF1C3D627C913A400D665AB /* AppDelegate.swift in Sources */,
 				2DF1C3D827C913A400D665AB /* SceneDelegate.swift in Sources */,
+				2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */,
+				2DF1C3F727CA249900D665AB /* OnboardingSlide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +424,7 @@
 		};
 		2DF1C3E727C913A600D665AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5199658F509CC1319465F7E5 /* Pods-Geo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -348,6 +453,7 @@
 		};
 		2DF1C3E827C913A600D665AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88B2C63C7BD5DE4DBFE1EA42 /* Pods-Geo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
