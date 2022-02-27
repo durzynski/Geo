@@ -131,7 +131,7 @@ extension OnboardingViewController {
         }
         
         if slideIndex > slidesCount {
-            let vc = ViewController()
+            let vc = LoginViewController()
             
             vc.modalPresentationStyle = .fullScreen
             vc.modalTransitionStyle = .crossDissolve

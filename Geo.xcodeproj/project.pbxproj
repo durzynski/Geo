@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DF1C3D627C913A400D665AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3D527C913A400D665AB /* AppDelegate.swift */; };
 		2DF1C3D827C913A400D665AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3D727C913A400D665AB /* SceneDelegate.swift */; };
-		2DF1C3DA27C913A400D665AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3D927C913A400D665AB /* ViewController.swift */; };
+		2DF1C3DA27C913A400D665AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3D927C913A400D665AB /* LoginViewController.swift */; };
 		2DF1C3DF27C913A600D665AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C3DE27C913A600D665AB /* Assets.xcassets */; };
 		2DF1C3E227C913A600D665AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */; };
 		2DF1C3F727CA249900D665AB /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3F627CA249900D665AB /* Slide.swift */; };
@@ -20,6 +20,7 @@
 		2DF1C40627CA956200D665AB /* mapa.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C40427CA956200D665AB /* mapa.json */; };
 		2DF1C40727CA956200D665AB /* travelling-icon-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C40527CA956200D665AB /* travelling-icon-animation.json */; };
 		2DF1C40927CA966100D665AB /* box-empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C40827CA966100D665AB /* box-empty.json */; };
+		2DF1C40C27CBDB4800D665AB /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */; };
 		5B8E4D639F51AF1123DBE444 /* Pods_Geo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +29,7 @@
 		2DF1C3D227C913A400D665AB /* Geo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DF1C3D527C913A400D665AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DF1C3D727C913A400D665AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2DF1C3D927C913A400D665AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2DF1C3D927C913A400D665AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2DF1C3DE27C913A600D665AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DF1C3E127C913A600D665AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DF1C3E327C913A600D665AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +41,7 @@
 		2DF1C40427CA956200D665AB /* mapa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapa.json; sourceTree = "<group>"; };
 		2DF1C40527CA956200D665AB /* travelling-icon-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "travelling-icon-animation.json"; sourceTree = "<group>"; };
 		2DF1C40827CA966100D665AB /* box-empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "box-empty.json"; sourceTree = "<group>"; };
+		2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
 		5199658F509CC1319465F7E5 /* Pods-Geo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geo.debug.xcconfig"; path = "Target Support Files/Pods-Geo/Pods-Geo.debug.xcconfig"; sourceTree = "<group>"; };
 		88B2C63C7BD5DE4DBFE1EA42 /* Pods-Geo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geo.release.xcconfig"; path = "Target Support Files/Pods-Geo/Pods-Geo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,8 +125,9 @@
 		2DF1C3ED27C914D100D665AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1C40A27CBDB3D00D665AB /* Cells */,
 				2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */,
-				2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */,
+				2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,9 +165,17 @@
 		2DF1C40127CA913E00D665AB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2DF1C3D927C913A400D665AB /* ViewController.swift */,
+				2DF1C3D927C913A400D665AB /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		2DF1C40A27CBDB3D00D665AB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B154F0A2FDBBDA29AD85B37F /* Pods */ = {
@@ -301,9 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF1C40C27CBDB4800D665AB /* LoginTextFieldView.swift in Sources */,
 				2DF1C3F927CA254000D665AB /* SlideViewModel.swift in Sources */,
 				2DF1C3FB27CA255900D665AB /* OnboardingViewController.swift in Sources */,
-				2DF1C3DA27C913A400D665AB /* ViewController.swift in Sources */,
+				2DF1C3DA27C913A400D665AB /* LoginViewController.swift in Sources */,
 				2DF1C3D627C913A400D665AB /* AppDelegate.swift in Sources */,
 				2DF1C40327CA93E500D665AB /* RoundedFont.swift in Sources */,
 				2DF1C3D827C913A400D665AB /* SceneDelegate.swift in Sources */,
