@@ -1,16 +1,20 @@
 //
-//  LoginViewController.swift
+//  SignUpViewController.swift
 //  Geo
 //
-//  Created by Damian Durzyński on 25/02/2022.
+//  Created by Damian Durzyński on 28/02/2022.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SignUpViewController: UIViewController {
 
     private var email: String {
         return emailTextFieldView.textField.text ?? ""
+    }
+    
+    private var username: String {
+        return usernamteTextFieldView.textField.text ?? ""
     }
     
     private var password: String {
@@ -49,7 +53,7 @@ class LoginViewController: UIViewController {
         return label
     }()
     
-    private let loginStackView: UIStackView = {
+    private let signUpStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -58,12 +62,12 @@ class LoginViewController: UIViewController {
         return stackView
     }()
     
-    private let loginLabel: UILabel = {
+    private let signUpLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         label.font = .rounded(ofSize: 24, weight: .semibold)
-        label.text = "Login"
+        label.text = "Register"
         
         return label
     }()
@@ -74,6 +78,18 @@ class LoginViewController: UIViewController {
         view.textFieldLabel.text = "Email"
         
         view.textField.placeholder = "Email"
+        view.textField.returnKeyType = .next
+        view.textField.isUserInteractionEnabled = true
+        
+        return view
+    }()
+    
+    private let usernamteTextFieldView: LoginTextFieldView = {
+        let view = LoginTextFieldView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.textFieldLabel.text = "Username"
+        
+        view.textField.placeholder = "Username"
         view.textField.returnKeyType = .next
         view.textField.isUserInteractionEnabled = true
         
@@ -93,43 +109,29 @@ class LoginViewController: UIViewController {
         return view
     }()
     
-    private let signInButton: UIButton = {
+    private let signUpButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = .filled()
         button.configuration?.baseBackgroundColor = .systemGreen
         button.configuration?.baseForegroundColor = .systemBackground
         button.configuration?.buttonSize = .large
-        button.setTitle("Sing in", for: [])
-        button.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
-
-        return button
-    }()
-    
-    private let signUpButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .bordered()
-        button.configuration?.baseForegroundColor = .systemGreen
-        button.configuration?.buttonSize = .large
-        button.configuration?.baseBackgroundColor = .systemBackground
-        button.layer.cornerRadius = 8
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemGreen.cgColor
-        button.setTitle("No account yet? Sign up", for: [])
+        button.setTitle("Sing up", for: [])
         button.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
 
         return button
     }()
+
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         setupUI()
         layoutUI()
-        setupNavigation()
+        
     }
 
 
@@ -137,25 +139,25 @@ class LoginViewController: UIViewController {
 
 //MARK: - Configure UI
 
-extension LoginViewController {
+extension SignUpViewController {
     
     func setupUI() {
         
         view.backgroundColor = .systemBackground
         
-        view.addSubview(loginStackView)
+        view.addSubview(signUpStackView)
         
-        loginStackView.addArrangedSubview(logoStackView)
+        signUpStackView.addArrangedSubview(logoStackView)
         
         logoStackView.addArrangedSubview(logoImageView)
         logoStackView.addArrangedSubview(logoLabel)
         
 
-        loginStackView.addArrangedSubview(loginLabel)
-        loginStackView.addArrangedSubview(emailTextFieldView)
-        loginStackView.addArrangedSubview(passwordTextFieldView)
-        loginStackView.addArrangedSubview(signInButton)
-        loginStackView.addArrangedSubview(signUpButton)
+        signUpStackView.addArrangedSubview(signUpLabel)
+        signUpStackView.addArrangedSubview(emailTextFieldView)
+        signUpStackView.addArrangedSubview(usernamteTextFieldView)
+        signUpStackView.addArrangedSubview(passwordTextFieldView)
+        signUpStackView.addArrangedSubview(signUpButton)
     }
     
     func layoutUI() {
@@ -164,9 +166,9 @@ extension LoginViewController {
         
             // Stack View
             
-            loginStackView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
-            loginStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginStackView.trailingAnchor, multiplier: 1),
+            signUpStackView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
+            signUpStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: signUpStackView.trailingAnchor, multiplier: 1),
             
             // Image
             
@@ -179,29 +181,13 @@ extension LoginViewController {
     
 }
 
-//MARK: - Setup Navigation
-
-extension LoginViewController {
-    
-    func setupNavigation() {
-        
-        navigationController?.navigationBar.tintColor = .label
-        
-    }
-    
-}
-
 //MARK: - Actions
 
-extension LoginViewController {
-    @objc func signInTapped() {
-        print("Sign In tapped")
-    }
+extension SignUpViewController {
     
     @objc func signUpTapped() {
-        
-        let vc = SignUpViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        print("Sign Up tapped")
     }
 }
+
 
