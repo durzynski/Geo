@@ -186,8 +186,61 @@ extension SignUpViewController {
 extension SignUpViewController {
     
     @objc func signUpTapped() {
-        print("Sign Up tapped")
+        
+        var title: String
+        var message: String
+        
+        if !email.isValidEmail() {
+            
+            title = "Incorrect email address"
+            message = "The email you entered is incorrect. Please try again."
+            presentSignUpError(title: title, message: message)
+            return
+        }
+        
+        if !username.isValidUsername() {
+            title = "Incorrect username"
+            message = "The username you entered is incorrect. Please try again."
+            presentSignUpError(title: title, message: message)
+            return
+        }
+        
+        if !password.isValidPassword() {
+            title = "Incorrect password"
+            message = "The password you entered is incorrect. Please try again."
+            presentSignUpError(title: title, message: message)
+            return
+        }
+
     }
+    
+
+
 }
 
+//MARK: - TextField Delegate
 
+extension SignUpViewController: UITextFieldDelegate {
+    
+    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+
+        case emailTextFieldView.textField:
+            usernamteTextFieldView.textField.becomeFirstResponder()
+        case usernamteTextFieldView.textField:
+            passwordTextFieldView.textField.becomeFirstResponder()
+        case passwordTextFieldView.textField:
+
+            signUpTapped()
+
+        default:
+            print("Error with return button.")
+
+        }
+
+        return true
+    }
+    
+}
