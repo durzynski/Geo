@@ -30,8 +30,8 @@ extension UIViewController {
 
 extension String {
     
-    func isValidUsername() -> Bool {
-        let regEx = "[A-Za-z]\\w{2,18}"
+    func isValidName() -> Bool {
+        let regEx = "[A-Za-z]{2,18}"
         return NSPredicate(format:"SELF MATCHES %@", regEx).evaluate(with: self)
     }
     
@@ -60,5 +60,38 @@ extension UIFont {
             font = systemFont
         }
         return font
+    }
+}
+
+//MARK: - Encodable
+
+extension Encodable {
+    func asDictionary() -> [String: Any]? {
+        
+        guard let data = try? JSONEncoder().encode(self) else {
+            return nil
+        }
+            
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+            return nil
+        }
+        
+        return json
+    }
+}
+
+//MARK: - Decodable
+
+extension Decodable {
+    init?(with dictionary: [String: Any]) {
+        guard let data = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) else {
+            return nil
+        }
+        
+        guard let result = try? JSONDecoder().decode(Self.self, from: data) else {
+            return nil
+        }
+        
+        self = result
     }
 }

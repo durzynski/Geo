@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
 
+    public var completion: (() -> Void)?
+    
     private var email: String {
         return emailTextFieldView.textField.text ?? ""
     }
     
-    private var username: String {
-        return usernamteTextFieldView.textField.text ?? ""
+    private var name: String {
+        return nameTextFieldView.textField.text ?? ""
     }
     
     private var password: String {
@@ -84,12 +87,12 @@ class SignUpViewController: UIViewController {
         return view
     }()
     
-    private let usernamteTextFieldView: LoginTextFieldView = {
+    private let nameTextFieldView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.textFieldLabel.text = "Username"
+        view.textFieldLabel.text = "Name"
         
-        view.textField.placeholder = "Username"
+        view.textField.placeholder = "Name"
         view.textField.returnKeyType = .next
         view.textField.isUserInteractionEnabled = true
         
@@ -128,10 +131,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         setupUI()
         layoutUI()
-        
+
     }
 
 
@@ -155,7 +157,7 @@ extension SignUpViewController {
 
         signUpStackView.addArrangedSubview(signUpLabel)
         signUpStackView.addArrangedSubview(emailTextFieldView)
-        signUpStackView.addArrangedSubview(usernamteTextFieldView)
+        signUpStackView.addArrangedSubview(nameTextFieldView)
         signUpStackView.addArrangedSubview(passwordTextFieldView)
         signUpStackView.addArrangedSubview(signUpButton)
     }
@@ -198,7 +200,7 @@ extension SignUpViewController {
             return
         }
         
-        if !username.isValidUsername() {
+        if !name.isValidName() {
             title = "Incorrect username"
             message = "The username you entered is incorrect. Please try again."
             presentSignUpError(title: title, message: message)
@@ -211,25 +213,34 @@ extension SignUpViewController {
             presentSignUpError(title: title, message: message)
             return
         }
-
+        
+        AuthManager.shared.singUp(email: email, name: name, password: password) { [weak self] result in
+            
+            switch result {
+            case .success(let user):
+                
+                UserDefaults.standard.set(user.email, forKey: "email")
+                UserDefaults.standard.set(user.name, forKey: "name")
+                
+                self?.navigationController?.popToRootViewController(animated: true)
+                self?.completion?()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-    
-
-
 }
 
 //MARK: - TextField Delegate
 
 extension SignUpViewController: UITextFieldDelegate {
-    
-    
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
 
         case emailTextFieldView.textField:
-            usernamteTextFieldView.textField.becomeFirstResponder()
-        case usernamteTextFieldView.textField:
+            nameTextFieldView.textField.becomeFirstResponder()
+        case nameTextFieldView.textField:
             passwordTextFieldView.textField.becomeFirstResponder()
         case passwordTextFieldView.textField:
 

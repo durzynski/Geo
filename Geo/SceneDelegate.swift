@@ -10,8 +10,11 @@ import Lottie
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
-    private let loginVC = LoginViewController()
+    private let signInVC = SignInViewController()
+    private let navSignInVC = UINavigationController(rootViewController: SignInViewController())
+    private let signUpVC = SignUpViewController()
     private let onboardingVC = OnboardingViewController()
+    private let mainVC = MainViewController()
     
     var window: UIWindow?
 
@@ -24,7 +27,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         onboardingVC.delegate = self
         
-        if PersistanceManager.shared.hasOnboarded {
+        if AuthManager.shared.isSignedIn {
+            setRootViewController(vc: mainVC)
+        } else if PersistanceManager.shared.hasOnboarded {
             displayLogin()
         } else {
             setRootViewController(vc: onboardingVC)
@@ -54,7 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     
     func displayLogin() {
-        setRootViewController(vc: UINavigationController(rootViewController: loginVC))
+        setRootViewController(vc: navSignInVC)
     }
     
     func setRootViewController(vc: UIViewController, animated: Bool = true) {
@@ -73,11 +78,13 @@ extension SceneDelegate {
     
 }
 
+//MARK: - OnboardingViewControllerDelegate
+
 extension SceneDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         
         UserDefaults.standard.set(true, forKey: PersistanceManager.Keys.hasOnboarded.rawValue)
         
-        setRootViewController(vc: loginVC)
+        setRootViewController(vc: navSignInVC)
     }
 }

@@ -15,10 +15,20 @@ struct PersistanceManager {
     
     enum Keys: String {
         case hasOnboarded
+        case email
+        case name
     }
     
     var hasOnboarded: Bool {
         return userDefaults.bool(forKey: Keys.hasOnboarded.rawValue)
+    }
+    
+    var userEmail: String {
+        return userDefaults.string(forKey: Keys.email.rawValue) ?? ""
+    }
+    
+    var userName: String {
+        return userDefaults.string(forKey: Keys.name.rawValue) ?? ""
     }
     
 }

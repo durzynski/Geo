@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignInViewController.swift
 //  Geo
 //
 //  Created by Damian Durzyński on 25/02/2022.
@@ -8,8 +8,8 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class LoginViewController: UIViewController {
-
+class SignInViewController: UIViewController {
+    
     private var email: String {
         return emailTextFieldView.textField.text ?? ""
     }
@@ -91,7 +91,6 @@ class LoginViewController: UIViewController {
         view.textField.returnKeyType = .done
         view.textField.isSecureTextEntry = true
         view.textField.isUserInteractionEnabled = true
-        view.textField.clearButtonMode = UITextField.ViewMode.whileEditing
         view.textField.textContentType = .oneTimeCode
         
         return view
@@ -145,7 +144,7 @@ class LoginViewController: UIViewController {
 
 //MARK: - Configure UI
 
-extension LoginViewController {
+extension SignInViewController {
     
     func setupUI() {
         
@@ -189,7 +188,7 @@ extension LoginViewController {
 
 //MARK: - Setup Navigation
 
-extension LoginViewController {
+extension SignInViewController {
     
     func setupNavigation() {
         
@@ -201,15 +200,22 @@ extension LoginViewController {
 
 //MARK: - Actions
 
-extension LoginViewController {
+extension SignInViewController {
     @objc func signInTapped() {
         
-        if !email.isValidEmail(), !password.isValidPassword() {
-            let title = "Sign In Error"
-            let message = "Your email or password is incorrect. Please try again."
-            
-            presentSignInError(title: title, message: message)
-            
+        AuthManager.shared.signIn(email: email, password: password) { result in
+            switch result {
+            case .success:
+                DispatchQueue.main.async { [weak self] in
+                    let vc = MainViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.modalTransitionStyle = .crossDissolve
+                    self?.present(vc, animated: true)
+                }
+
+            case .failure(_):
+                self.presentSignInError(title: "Sign In Error", message: "Your email or password is incorrect. Please try again.")
+            }
         }
         
     }
@@ -217,13 +223,21 @@ extension LoginViewController {
     @objc func signUpTapped() {
         
         let vc = SignUpViewController()
+        vc.completion = {
+            DispatchQueue.main.async { [weak self] in
+                let vc = MainViewController()
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self?.present(vc, animated: true)
+            }
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 //MARK: - TextField Delegate
 
-extension LoginViewController: UITextFieldDelegate {
+extension SignInViewController: UITextFieldDelegate {
     
     
 

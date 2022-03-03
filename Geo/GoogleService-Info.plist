@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>296122950956-ane12eudd77aicjm47ns7omj0sq20qij.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.296122950956-ane12eudd77aicjm47ns7omj0sq20qij</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAjovAUHpHj96TjNT_0LEfyDWLSkBmZww4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>296122950956</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.damiandu.Geo</string>
+	<key>PROJECT_ID</key>
+	<string>geoapp-526dd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>geoapp-526dd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:296122950956:ios:07bed5f62f4d4eee637889</string>
+</dict>
+</plist>
