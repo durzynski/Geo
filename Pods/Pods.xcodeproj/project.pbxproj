@@ -11246,7 +11246,11 @@
 		C5CDFC4AD98E93BE7467BFE73A712E0E /* completion_queue_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = completion_queue_impl.h; path = include/grpcpp/impl/codegen/completion_queue_impl.h; sourceTree = "<group>"; };
 		C5D0C1576925084AC8DFEAD7F457C8D9 /* work_serializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = work_serializer.h; path = src/core/lib/iomgr/work_serializer.h; sourceTree = "<group>"; };
 		C5DEE0190E32E730E34BBBA6BCF750AF /* table_builder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = table_builder.h; path = include/leveldb/table_builder.h; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		C5F34A69E2E161944D62FD43C01F121D /* Pods_Geo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		C5F34A69E2E161944D62FD43C01F121D /* Pods-Geo */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Geo"; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> login
 		C5F9B1989DB1900EDE5DACFC561A3CE0 /* frame_goaway.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = frame_goaway.h; path = src/core/ext/transport/chttp2/transport/frame_goaway.h; sourceTree = "<group>"; };
 		C607CA3F456DB9E26AAC9BE034A21403 /* filter_block.cc */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = filter_block.cc; path = table/filter_block.cc; sourceTree = "<group>"; };
 		C65B606B7AF91F1E0C878BFDC5789EFF /* cpu-ppc64le.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = "cpu-ppc64le.c"; path = "src/crypto/cpu-ppc64le.c"; sourceTree = "<group>"; };
@@ -16162,7 +16166,11 @@
 				0A9F46A999C47653013D3AD854352507 /* leveldb.framework */,
 				51BA97E8B5085EFFB47BC9C0B785CEA7 /* Lottie.framework */,
 				06FC5C9CF96D60C50FCD47D339C91951 /* nanopb.framework */,
+<<<<<<< HEAD
 				C5F34A69E2E161944D62FD43C01F121D /* Pods_Geo.framework */,
+=======
+				C5F34A69E2E161944D62FD43C01F121D /* Pods-Geo */,
+>>>>>>> login
 				3347A1AB6546F0A3977529B8F199DC41 /* FBLPromises.framework */,
 			);
 			name = Products;
@@ -18716,7 +18724,11 @@
 			);
 			name = "Pods-Geo";
 			productName = Pods_Geo;
+<<<<<<< HEAD
 			productReference = C5F34A69E2E161944D62FD43C01F121D /* Pods_Geo.framework */;
+=======
+			productReference = C5F34A69E2E161944D62FD43C01F121D /* Pods-Geo */;
+>>>>>>> login
 			productType = "com.apple.product-type.framework";
 		};
 		8D7F5D5DD528D21A72DC87ADA5B12E2D /* GoogleUtilities */ = {

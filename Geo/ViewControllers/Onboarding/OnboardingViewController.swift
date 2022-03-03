@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol OnboardingViewControllerDelegate {
+    func didFinishOnboarding()
+}
+
 class OnboardingViewController: UIViewController {
     
     private var slideIndex: Int = 0
     private var slidesListViewModel = SlideListViewModel()
+    
+    var delegate: OnboardingViewControllerDelegate?
     
     //MARK: - UI Elements
     
@@ -131,11 +137,8 @@ extension OnboardingViewController {
         }
         
         if slideIndex > slidesCount {
-            let vc = ViewController()
             
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            present(vc, animated: true)
+            delegate?.didFinishOnboarding()
         }
         
         
