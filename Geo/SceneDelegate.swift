@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let navSignInVC = UINavigationController(rootViewController: SignInViewController())
     private let signUpVC = SignUpViewController()
     private let onboardingVC = OnboardingViewController()
-    private let mainVC = MainViewController()
+    private let mainVC = MainTabBarController()
     
     var window: UIWindow?
 

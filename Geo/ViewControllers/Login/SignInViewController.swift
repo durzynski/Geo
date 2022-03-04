@@ -207,7 +207,7 @@ extension SignInViewController {
             switch result {
             case .success:
                 DispatchQueue.main.async { [weak self] in
-                    let vc = MainViewController()
+                    let vc = MainTabBarController()
                     vc.modalPresentationStyle = .fullScreen
                     vc.modalTransitionStyle = .crossDissolve
                     self?.present(vc, animated: true)
@@ -225,7 +225,7 @@ extension SignInViewController {
         let vc = SignUpViewController()
         vc.completion = {
             DispatchQueue.main.async { [weak self] in
-                let vc = MainViewController()
+                let vc = MainTabBarController()
                 vc.modalPresentationStyle = .fullScreen
                 vc.modalTransitionStyle = .crossDissolve
                 self?.present(vc, animated: true)

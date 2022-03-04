@@ -1,13 +1,13 @@
 //
-//  MainViewController.swift
+//  DummyLogoutVC.swift
 //  Geo
 //
-//  Created by Damian Durzyński on 02/03/2022.
+//  Created by Damian Durzyński on 03/03/2022.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
+class DummyLogoutVC: UIViewController {
     
     let stackView = UIStackView()
     let label = UILabel()
@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
 }
 
 
-extension MainViewController {
+extension DummyLogoutVC {
     func styleUI() {
         
         view.backgroundColor = .systemBackground
@@ -53,7 +53,7 @@ extension MainViewController {
     }
 }
 
-extension MainViewController {
+extension DummyLogoutVC {
     
     @objc func signOutTapped() {
         

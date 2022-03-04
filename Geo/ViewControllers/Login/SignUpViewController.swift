@@ -219,8 +219,7 @@ extension SignUpViewController {
             switch result {
             case .success(let user):
                 
-                UserDefaults.standard.set(user.email, forKey: "email")
-                UserDefaults.standard.set(user.name, forKey: "name")
+                PersistanceManager.shared.setupUser(user: user)
                 
                 self?.navigationController?.popToRootViewController(animated: true)
                 self?.completion?()

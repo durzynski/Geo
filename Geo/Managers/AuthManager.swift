@@ -42,8 +42,7 @@ struct AuthManager {
                     return
                 }
             
-                UserDefaults.standard.set(user.name, forKey: "name")
-                UserDefaults.standard.set(user.email, forKey: "email")
+                PersistanceManager.shared.setupUser(user: user)
                 
                 completion(.success(user))
                 
