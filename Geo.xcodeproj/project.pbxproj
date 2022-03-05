@@ -14,6 +14,8 @@
 		2D47595127D167F300333474 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595027D167F300333474 /* PlaceViewModel.swift */; };
 		2D47595327D23BF300333474 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595227D23BF300333474 /* PlacesTableViewCell.swift */; };
 		2D47595727D2689E00333474 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595627D2689E00333474 /* PlaceDetailViewController.swift */; };
+		2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */; };
+		2D47595B27D3C06E00333474 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595A27D3C06E00333474 /* DividerView.swift */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
 		2D635C4827D01F830048D75E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4727D01F820048D75E /* User.swift */; };
 		2D635C4A27D020CA0048D75E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4927D020CA0048D75E /* DatabaseManager.swift */; };
@@ -47,6 +49,8 @@
 		2D47595027D167F300333474 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		2D47595227D23BF300333474 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
 		2D47595627D2689E00333474 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndSubtitleView.swift; sourceTree = "<group>"; };
+		2D47595A27D3C06E00333474 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D635C4727D01F820048D75E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D635C4927D020CA0048D75E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				2DF1C40A27CBDB3D00D665AB /* Cells */,
 				2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */,
 				2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */,
+				2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */,
+				2D47595A27D3C06E00333474 /* DividerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,12 +384,14 @@
 				2DF1C3DA27C913A400D665AB /* SignInViewController.swift in Sources */,
 				2DF1C40E27CD0F9F00D665AB /* SignUpViewController.swift in Sources */,
 				2D635C4C27D02A9E0048D75E /* MainTabBarController.swift in Sources */,
+				2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */,
 				2DF1C3D627C913A400D665AB /* AppDelegate.swift in Sources */,
 				2DF1C40327CA93E500D665AB /* Extensions.swift in Sources */,
 				2DF1C3D827C913A400D665AB /* SceneDelegate.swift in Sources */,
 				2D47595127D167F300333474 /* PlaceViewModel.swift in Sources */,
 				2D47594927D108A700333474 /* DummyLogoutVC.swift in Sources */,
 				2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */,
+				2D47595B27D3C06E00333474 /* DividerView.swift in Sources */,
 				2DF1C3F727CA249900D665AB /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

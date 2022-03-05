@@ -156,11 +156,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = placesViewModel.placeAtIndex(indexPath.row)
-        
+        let viewModel = placesViewModel.sortedPlaceAtIndex(indexPath.row)
+
         let vc = PlaceDetailViewController(viewModel: viewModel)
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
         
-        navigationController?.pushViewController(vc, animated: true)
+        present(navVC, animated: true)
     }
 }
 
