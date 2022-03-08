@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class PlaceDetailViewController: UIViewController {
     
@@ -62,6 +63,7 @@ class PlaceDetailViewController: UIViewController {
         
         return view
     }()
+
     
     //MARK: - Init
     
@@ -146,17 +148,7 @@ extension PlaceDetailViewController {
         
         difficultyView.titleLabel.text = "Difficulty"
         difficultyView.subtitleLabel.text = viewModel.difficulty
-        
-        switch viewModel.difficulty {
-        case "Easy":
-            difficultyView.subtitleLabel.textColor = .systemGreen
-        case "Medium":
-            difficultyView.subtitleLabel.textColor = .systemYellow
-        case "Hard":
-            difficultyView.subtitleLabel.textColor = .systemRed
-        default:
-            break
-        }
+        difficultyView.subtitleLabel.textColor = viewModel.difficultyColor
         
         sizeView.titleLabel.text = "Size"
         sizeView.subtitleLabel.text = viewModel.size

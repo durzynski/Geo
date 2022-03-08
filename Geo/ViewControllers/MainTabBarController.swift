@@ -17,9 +17,11 @@ class MainTabBarController: UITabBarController {
         UITabBar.appearance().tintColor = .systemGreen
         
         let homeVC = createNavigationControllers(title: "Home", imageName: "house.fill", viewController: HomeViewController())
-        let dummyLogout = createNavigationControllers(title: "Logout", imageName: "", viewController: DummyLogoutVC())
+        let mapVC = createNavigationControllers(title: "Map", imageName: "map.fill", viewController: MapViewController())
+        let listVC = createNavigationControllers(title: "List", imageName: "list.bullet", viewController: ListViewController())
+        let settingsVC = createNavigationControllers(title: "Settings", imageName: "gearshape.fill", viewController: SettingsViewController())
         
-        viewControllers = [homeVC, dummyLogout]
+        viewControllers = [homeVC, mapVC, listVC, settingsVC]
         
     }
 }

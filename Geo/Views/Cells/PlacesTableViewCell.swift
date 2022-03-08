@@ -11,7 +11,8 @@ import UIKit
 class PlacesTableViewCell: UITableViewCell {
     
     static let identifier = "PlacesTableViewCell"
-
+    static let prefferedHeight = CGFloat(75)
+    
     private let difficultyColorView: UIView = {
         let view =  UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -80,8 +81,8 @@ extension PlacesTableViewCell {
             
             
             difficultyColorView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 2),
-            difficultyColorView.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 2),
-            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: difficultyColorView.bottomAnchor, multiplier: 2),
+            difficultyColorView.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 3),
+            contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: difficultyColorView.bottomAnchor, multiplier: 3),
             difficultyColorView.widthAnchor.constraint(equalTo: difficultyColorView.heightAnchor),
             
             labelStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: difficultyColorView.trailingAnchor, multiplier: 2),
@@ -107,7 +108,7 @@ extension PlacesTableViewCell {
     
     func configure(with viewModel: PlaceViewModel) {
         
-        difficultyColorView.backgroundColor = .systemYellow
+        difficultyColorView.backgroundColor = viewModel.difficultyColor
         
         placeNameLabel.text = viewModel.name
         distanceLabel.text = viewModel.distance

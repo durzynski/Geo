@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 //MARK: - List
 
@@ -14,9 +15,24 @@ struct PlaceListViewModel {
     let places: [Place] = [
         Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
         
-        Place(name: "Dummy Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
+        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
         
-        Place(name: "Scary road", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small)
+        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small),
+        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
+        
+        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
+        
+        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small),
+        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
+        
+        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
+        
+        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small),
+        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
+        
+        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
+        
+        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small)
     ]
     
 }
@@ -34,7 +50,7 @@ extension PlaceListViewModel {
         return PlaceViewModel(place)
     }
     
-    func sortedPlaceAtIndex(_ index: Int) -> PlaceViewModel {
+    func sortedPlaceAtIndex(_ index: Int, maxLength: Int? = nil) -> PlaceViewModel {
         let places = self.places
         var placesVM: [PlaceViewModel] = []
         
@@ -42,7 +58,13 @@ extension PlaceListViewModel {
             placesVM.append(PlaceViewModel(place))
         }
         
-        let sorted = placesVM.sorted(by: {$0.distanceValue < $1.distanceValue })
+        var sorted = placesVM.sorted(by: {$0.distanceValue < $1.distanceValue })
+        
+        guard let maxLength = maxLength else {
+            return sorted[index]
+        }
+
+        sorted = sorted.prefix(maxLength).map{ $0 }
         
         return sorted[index]
     }
@@ -69,6 +91,19 @@ extension PlaceViewModel {
         return self.place.difficulty.rawValue
     }
     
+    var difficultyColor: UIColor {
+        switch difficulty {
+        case "Easy":
+            return .systemGreen
+        case "Medium":
+            return .systemYellow
+        case "Hard":
+            return .systemRed
+        default:
+            return .label
+        }
+    }
+    
     var hint: String {
         return self.place.hint
     }
@@ -89,6 +124,8 @@ extension PlaceViewModel {
     var size: String {
         return self.place.size.rawValue
     }
+    
+
     
     var distanceValue: Int {
         let placeCoordinate = CLLocation(latitude: latitude, longitude: longitude)

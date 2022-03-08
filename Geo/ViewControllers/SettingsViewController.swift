@@ -1,5 +1,5 @@
 //
-//  DummyLogoutVC.swift
+//  SettingsViewController.swift
 //  Geo
 //
 //  Created by Damian Durzyński on 03/03/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DummyLogoutVC: UIViewController {
+class SettingsViewController: UIViewController {
     
     let stackView = UIStackView()
     let label = UILabel()
@@ -22,7 +22,7 @@ class DummyLogoutVC: UIViewController {
 }
 
 
-extension DummyLogoutVC {
+extension SettingsViewController {
     func styleUI() {
         
         view.backgroundColor = .systemBackground
@@ -53,7 +53,7 @@ extension DummyLogoutVC {
     }
 }
 
-extension DummyLogoutVC {
+extension SettingsViewController {
     
     @objc func signOutTapped() {
         

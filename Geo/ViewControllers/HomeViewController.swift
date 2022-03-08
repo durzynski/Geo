@@ -11,7 +11,7 @@ import CoreLocation
 class HomeViewController: UIViewController {
     
     private var userViewModel = UserViewModel()
-    private var placesViewModel = PlaceListViewModel()
+    private var placesListViewModel = PlaceListViewModel()
     
     var locationManager = CLLocationManager()
     //MARK: - UI Elements
@@ -106,8 +106,8 @@ extension HomeViewController {
             labelStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             
             placesTableView.topAnchor.constraint(equalToSystemSpacingBelow: labelStackView.bottomAnchor, multiplier: 2),
-            placesTableView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: placesTableView.trailingAnchor, multiplier: 2),
+            placesTableView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 0),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: placesTableView.trailingAnchor, multiplier: 0),
             view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: placesTableView.bottomAnchor, multiplier: 0)
             
         ])
@@ -132,7 +132,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placesViewModel.numberOfRowsInSection(section)
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,8 +142,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         
-        let viewModel = placesViewModel.sortedPlaceAtIndex(indexPath.row)
-  
+        let viewModel = placesListViewModel.sortedPlaceAtIndex(indexPath.row, maxLength: 5)
         
         cell.configure(with: viewModel)
         
@@ -152,11 +151,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75
+        return PlacesTableViewCell.prefferedHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = placesViewModel.sortedPlaceAtIndex(indexPath.row)
+        let viewModel = placesListViewModel.sortedPlaceAtIndex(indexPath.row)
 
         let vc = PlaceDetailViewController(viewModel: viewModel)
         let navVC = UINavigationController(rootViewController: vc)
@@ -175,10 +174,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        
-
-        
+        locationManager.requestWhenInUseAuthorization() 
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

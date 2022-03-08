@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D47594927D108A700333474 /* DummyLogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594827D108A700333474 /* DummyLogoutVC.swift */; };
+		2D47594927D108A700333474 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594827D108A700333474 /* SettingsViewController.swift */; };
 		2D47594B27D109C000333474 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594A27D109C000333474 /* HomeViewController.swift */; };
 		2D47594D27D10F5F00333474 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594C27D10F5F00333474 /* UserViewModel.swift */; };
 		2D47594F27D1354700333474 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594E27D1354700333474 /* Place.swift */; };
@@ -16,6 +16,8 @@
 		2D47595727D2689E00333474 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595627D2689E00333474 /* PlaceDetailViewController.swift */; };
 		2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */; };
 		2D47595B27D3C06E00333474 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595A27D3C06E00333474 /* DividerView.swift */; };
+		2D47595D27D6CF6E00333474 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595C27D6CF6E00333474 /* MapViewController.swift */; };
+		2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595E27D6CFEC00333474 /* ListViewController.swift */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
 		2D635C4827D01F830048D75E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4727D01F820048D75E /* User.swift */; };
 		2D635C4A27D020CA0048D75E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4927D020CA0048D75E /* DatabaseManager.swift */; };
@@ -42,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D47594827D108A700333474 /* DummyLogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyLogoutVC.swift; sourceTree = "<group>"; };
+		2D47594827D108A700333474 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D47594A27D109C000333474 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2D47594C27D10F5F00333474 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		2D47594E27D1354700333474 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		2D47595627D2689E00333474 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndSubtitleView.swift; sourceTree = "<group>"; };
 		2D47595A27D3C06E00333474 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		2D47595C27D6CF6E00333474 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2D47595E27D6CFEC00333474 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D635C4727D01F820048D75E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D635C4927D020CA0048D75E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -129,7 +133,9 @@
 			children = (
 				2D635C4B27D02A9E0048D75E /* MainTabBarController.swift */,
 				2D47594A27D109C000333474 /* HomeViewController.swift */,
-				2D47594827D108A700333474 /* DummyLogoutVC.swift */,
+				2D47595C27D6CF6E00333474 /* MapViewController.swift */,
+				2D47595E27D6CFEC00333474 /* ListViewController.swift */,
+				2D47594827D108A700333474 /* SettingsViewController.swift */,
 				2D47595627D2689E00333474 /* PlaceDetailViewController.swift */,
 				2DF1C40127CA913E00D665AB /* Login */,
 				2DF1C3F127CA219700D665AB /* Onboarding */,
@@ -377,6 +383,7 @@
 				2D47595727D2689E00333474 /* PlaceDetailViewController.swift in Sources */,
 				2D47594B27D109C000333474 /* HomeViewController.swift in Sources */,
 				2DF1C40C27CBDB4800D665AB /* LoginTextFieldView.swift in Sources */,
+				2D47595D27D6CF6E00333474 /* MapViewController.swift in Sources */,
 				2DF1C3F927CA254000D665AB /* SlideViewModel.swift in Sources */,
 				2DF1C3FB27CA255900D665AB /* OnboardingViewController.swift in Sources */,
 				2D47594D27D10F5F00333474 /* UserViewModel.swift in Sources */,
@@ -389,9 +396,10 @@
 				2DF1C40327CA93E500D665AB /* Extensions.swift in Sources */,
 				2DF1C3D827C913A400D665AB /* SceneDelegate.swift in Sources */,
 				2D47595127D167F300333474 /* PlaceViewModel.swift in Sources */,
-				2D47594927D108A700333474 /* DummyLogoutVC.swift in Sources */,
+				2D47594927D108A700333474 /* SettingsViewController.swift in Sources */,
 				2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */,
 				2D47595B27D3C06E00333474 /* DividerView.swift in Sources */,
+				2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */,
 				2DF1C3F727CA249900D665AB /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
