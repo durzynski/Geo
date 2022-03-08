@@ -155,7 +155,8 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        guard let placeAnnotationView = view.annotation as? PlaceMapAnnotation, let place = placeAnnotationView.place else {
+        guard let placeAnnotationView = view.annotation as? PlaceMapAnnotation,
+              let place = placeAnnotationView.place else {
             return
         }
         
@@ -167,27 +168,4 @@ extension MapViewController: MKMapViewDelegate {
         
     }
 
-}
-
-extension MKAnnotationView {
-
-    public func set(image: UIImage, with color : UIColor) {
-        let view = UIImageView(image: image.withRenderingMode(.alwaysTemplate))
-        view.tintColor = color
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        guard let graphicsContext = UIGraphicsGetCurrentContext() else { return }
-        view.layer.render(in: graphicsContext)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        self.image = image
-    }
-    
-}
-
-//MARK: - Actions
-
-extension MapViewController {
-    @objc func presentDetailViewController() {
-        
-    }
 }

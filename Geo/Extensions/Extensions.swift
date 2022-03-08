@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 //MARK: - UIViewController
 
@@ -94,4 +95,21 @@ extension Decodable {
         
         self = result
     }
+}
+
+//MARK: - MKAnnotation {
+
+extension MKAnnotationView {
+
+    public func set(image: UIImage, with color : UIColor) {
+        let view = UIImageView(image: image.withRenderingMode(.alwaysTemplate))
+        view.tintColor = color
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        guard let graphicsContext = UIGraphicsGetCurrentContext() else { return }
+        view.layer.render(in: graphicsContext)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.image = image
+    }
+    
 }

@@ -21,6 +21,15 @@ class ListViewController: UIViewController {
         return table
     }()
     
+    private let resfreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        return refreshControl
+    }()
+    
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -30,8 +39,6 @@ class ListViewController: UIViewController {
         layout()
         
         configureTableView()
-        
-        fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +46,7 @@ class ListViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.listTableView.reloadData()
+            self.fetchData()
         }
     }
 }
@@ -65,10 +73,6 @@ extension ListViewController {
             
         ])
     }
-    
-    private func configureNavigation() {
-        
-    }
 }
 
 //MARK: - Fetch Places
@@ -84,6 +88,7 @@ extension ListViewController {
                 
                 DispatchQueue.main.async {
                     self?.listTableView.reloadData()
+                    self?.resfreshControl.endRefreshing()
                 }
             }
         }
@@ -91,6 +96,15 @@ extension ListViewController {
     
 }
 
+//MARK: - Actions
+
+extension ListViewController {
+    
+    @objc func refresh() {
+        fetchData()
+    }
+    
+}
 
 
 //MARK: - TableView Delegate & DataSource
@@ -98,8 +112,10 @@ extension ListViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     private func configureTableView() {
+        listTableView.register(EmptyTableViewCell.self, forCellReuseIdentifier: EmptyTableViewCell.identifier)
         listTableView.delegate = self
         listTableView.dataSource = self
+        listTableView.addSubview(resfreshControl)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -107,10 +123,23 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        if placesListViewModel.places.count == 0 {
+            return 1
+        }
+        
         return placesListViewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if placesListViewModel.places.count == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.identifier, for: indexPath) as? EmptyTableViewCell else {
+                fatalError()
+            }
+            
+            return cell
+        }
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PlacesTableViewCell.identifier, for: indexPath) as? PlacesTableViewCell else {
             fatalError()
@@ -125,17 +154,26 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if placesListViewModel.places.count == 0 {
+            return listTableView.frame.size.height
+        }
+        
         return PlacesTableViewCell.prefferedHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = placesListViewModel.sortedPlaceAtIndex(indexPath.row)
-
-        let vc = PlaceDetailViewController(viewModel: viewModel)
-        let navVC = UINavigationController(rootViewController: vc)
-        navVC.modalPresentationStyle = .fullScreen
         
-        present(navVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if placesListViewModel.places.count != 0 {
+            let viewModel = placesListViewModel.sortedPlaceAtIndex(indexPath.row)
+
+            let vc = PlaceDetailViewController(viewModel: viewModel)
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.modalPresentationStyle = .fullScreen
+            
+            present(navVC, animated: true)
+        }
     }
-    
 }

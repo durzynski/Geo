@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D02954027D71BD400E2E8C0 /* PlaceMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */; };
+		2D02954227D7EE5F00E2E8C0 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02954127D7EE5F00E2E8C0 /* EmptyTableViewCell.swift */; };
 		2D47594927D108A700333474 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594827D108A700333474 /* SettingsViewController.swift */; };
 		2D47594B27D109C000333474 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594A27D109C000333474 /* HomeViewController.swift */; };
 		2D47594D27D10F5F00333474 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594C27D10F5F00333474 /* UserViewModel.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotation.swift; sourceTree = "<group>"; };
+		2D02954127D7EE5F00E2E8C0 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		2D47594827D108A700333474 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D47594A27D109C000333474 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2D47594C27D10F5F00333474 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */,
 				2D47595227D23BF300333474 /* PlacesTableViewCell.swift */,
+				2D02954127D7EE5F00E2E8C0 /* EmptyTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			files = (
 				2D635C4827D01F830048D75E /* User.swift in Sources */,
 				2D47594F27D1354700333474 /* Place.swift in Sources */,
+				2D02954227D7EE5F00E2E8C0 /* EmptyTableViewCell.swift in Sources */,
 				2D47595327D23BF300333474 /* PlacesTableViewCell.swift in Sources */,
 				2DF1C41227CD139400D665AB /* PersistanceManager.swift in Sources */,
 				2DF1C41427CD2F1B00D665AB /* AuthManager.swift in Sources */,
