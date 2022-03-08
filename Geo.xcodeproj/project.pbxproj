@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D02954027D71BD400E2E8C0 /* PlaceMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */; };
 		2D47594927D108A700333474 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594827D108A700333474 /* SettingsViewController.swift */; };
 		2D47594B27D109C000333474 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594A27D109C000333474 /* HomeViewController.swift */; };
 		2D47594D27D10F5F00333474 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594C27D10F5F00333474 /* UserViewModel.swift */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotation.swift; sourceTree = "<group>"; };
 		2D47594827D108A700333474 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D47594A27D109C000333474 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2D47594C27D10F5F00333474 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */,
 				2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */,
 				2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */,
+				2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				2D47594927D108A700333474 /* SettingsViewController.swift in Sources */,
 				2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */,
 				2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */,
+				2D02954027D71BD400E2E8C0 /* PlaceMapAnnotation.swift in Sources */,
 				2DF1C3F727CA249900D665AB /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

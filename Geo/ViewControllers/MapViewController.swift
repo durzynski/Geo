@@ -48,7 +48,7 @@ extension MapViewController {
         title = "Map"
         
         view.addSubview(mapView)
-        
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMarkerAnnotationView.self.description())
     }
     
     private func layout() {
@@ -108,18 +108,86 @@ extension MapViewController: MKMapViewDelegate {
         for _ in places {
  
             
-            let annotation = MKPointAnnotation()
+            let annotation = PlaceMapAnnotation()
             
             let model = placesListViewModel.placeAtIndex(index)
             
             annotation.title = model.name
             annotation.coordinate = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
-        
+            annotation.place = model
+            annotation.color = model.difficultyColor
+            
             index += 1
             
             mapView.addAnnotation(annotation)
         }
         
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let reuseIdentifier = "PlaceAnnotationView"
+        
+        var placeAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if placeAnnotationView == nil {
+            
+            placeAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            placeAnnotationView?.canShowCallout = true
+            
+            let btn = UIButton(type: .detailDisclosure)
+            placeAnnotationView?.rightCalloutAccessoryView = btn
+            
+        } else {
+            placeAnnotationView?.annotation = annotation
+        }
+        
+        if let placeAnnotation = annotation as? PlaceMapAnnotation {
+            placeAnnotationView?.set(image: UIImage(systemName: "mappin.circle.fill") ?? UIImage(), with: placeAnnotation.color ?? UIColor.black)
+            placeAnnotationView?.frame.size = CGSize(width: 40, height: 40)
+        }
+        
+        return placeAnnotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let placeAnnotationView = view.annotation as? PlaceMapAnnotation, let place = placeAnnotationView.place else {
+            return
+        }
+        
+        let vc = PlaceDetailViewController(viewModel: place)
+        let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen
+        
+        present(navVC, animated: true)
+        
+    }
 
+}
+
+extension MKAnnotationView {
+
+    public func set(image: UIImage, with color : UIColor) {
+        let view = UIImageView(image: image.withRenderingMode(.alwaysTemplate))
+        view.tintColor = color
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        guard let graphicsContext = UIGraphicsGetCurrentContext() else { return }
+        view.layer.render(in: graphicsContext)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.image = image
+    }
+    
+}
+
+//MARK: - Actions
+
+extension MapViewController {
+    @objc func presentDetailViewController() {
+        
+    }
 }
