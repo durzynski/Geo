@@ -26,17 +26,27 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        style()
+        setup()
         layout()
         
         configureTableView()
+        
+        fetchData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.listTableView.reloadData()
+        }
     }
 }
 
 //MARK: - Configure UI
 
 extension ListViewController {
-    func style() {
+    private func setup() {
         
         title = "List"
         
@@ -44,28 +54,44 @@ extension ListViewController {
 
     }
     
-    func layout() {
+    private func layout() {
 
         NSLayoutConstraint.activate([
 
             listTableView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 0),
             listTableView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 0),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: listTableView.trailingAnchor, multiplier: 0),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: listTableView.bottomAnchor, multiplier: 0),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: listTableView.bottomAnchor, multiplier: 0),
             
         ])
     }
     
-    func configureNavigation() {
+    private func configureNavigation() {
         
     }
 }
 
-//MARK: - Actions
+//MARK: - Fetch Places
 
 extension ListViewController {
     
+    func fetchData() {
+        
+        DatabaseManager.shared.fetchPlaces { [weak self] places in
+
+            if let places = places {
+                self?.placesListViewModel.places = places
+                
+                DispatchQueue.main.async {
+                    self?.listTableView.reloadData()
+                }
+            }
+        }
+    }
+    
 }
+
+
 
 //MARK: - TableView Delegate & DataSource
 

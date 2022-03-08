@@ -62,6 +62,8 @@ class HomeViewController: UIViewController {
         setupTableView()
         getUserLocation()
         
+        fetchData()
+        
     }
     
     
@@ -70,7 +72,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
 
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
             
             DispatchQueue.main.async {
                 self.placesTableView.reloadData()
@@ -122,6 +124,26 @@ extension HomeViewController {
     
 }
 
+//MARK: - Fetch Places
+
+extension HomeViewController {
+    
+    func fetchData() {
+        
+        DatabaseManager.shared.fetchPlaces { [weak self] places in
+
+            if let places = places {
+                self?.placesListViewModel.places = places
+                
+                DispatchQueue.main.async {
+                    self?.placesTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+}
+
 //MARK: - UITableView Delegate & DataSource
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -132,7 +154,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return placesListViewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

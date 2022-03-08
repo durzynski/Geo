@@ -12,28 +12,7 @@ import UIKit
 //MARK: - List
 
 struct PlaceListViewModel {
-    let places: [Place] = [
-        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
-        
-        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
-        
-        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small),
-        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
-        
-        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
-        
-        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small),
-        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
-        
-        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
-        
-        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small),
-        Place(name: "Magic Forest", difficulty: .hard, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 67.321372, longitude: 19.268350, size: .small),
-        
-        Place(name: "Dummy Forest", difficulty: .medium, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 58.321372, longitude: 15.268350, size: .small),
-        
-        Place(name: "Scary road", difficulty: .easy, hint: "Behind the tree", description: "Enjoy your trip and prizees in this beautiful forest", latitude: 30.321372, longitude: 17.268350, size: .small)
-    ]
+    var places: [Place] = [] 
     
 }
 
@@ -88,7 +67,7 @@ extension PlaceViewModel {
     }
     
     var difficulty: String {
-        return self.place.difficulty.rawValue
+        return self.place.difficulty
     }
     
     var difficultyColor: UIColor {
@@ -122,7 +101,7 @@ extension PlaceViewModel {
 
     
     var size: String {
-        return self.place.size.rawValue
+        return self.place.size
     }
     
 

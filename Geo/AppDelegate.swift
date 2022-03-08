@@ -20,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
         
+        DatabaseManager.shared.fetchPlaces { place in
             
+        }
+        
         return true
     }
 

@@ -7,24 +7,14 @@
 
 import Foundation
 
-struct Place {
+struct Place: Codable {
+    
     let name: String
-    let difficulty: Difficulty
+    let difficulty: String
     let hint: String
     let description: String
     let latitude: Double
     let longitude: Double
-    let size: Size
-    
-    enum Difficulty: String {
-        case easy = "Easy"
-        case medium = "Medium"
-        case hard = "Hard"
-    }
-    
-    enum Size: String {
-        case small = "Small"
-        case medium = "Medium"
-        case big = "Big"
-    }
+    let size: String
+
 }

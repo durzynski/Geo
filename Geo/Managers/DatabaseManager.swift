@@ -16,6 +16,23 @@ struct DatabaseManager {
     
     let database = Firestore.firestore()
     
+    public func fetchPlaces(completion: @escaping ([Place]?) -> Void) {
+        
+        let reference = database.collection("places")
+        
+        reference.getDocuments { querySnapshot, error in
+            
+            guard let places = querySnapshot?.documents.compactMap({ Place(with: $0.data()) }), error == nil else {
+                completion(nil)
+                return
+            }
+            completion(places)
+        }
+        
+
+        
+    }
+    
     public func findUser(with email: String, completion: @escaping (User?) -> Void) {
         
         let reference = database.collection("users").document(email)
@@ -24,7 +41,6 @@ struct DatabaseManager {
             if let document = document, document.exists {
                 
                 let data = document.data()
-                
                 let user = User(with: data ?? ["": ""])
                 completion(user)
             } else {

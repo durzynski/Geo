@@ -15,7 +15,6 @@
 		2D47595327D23BF300333474 /* PlacesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595227D23BF300333474 /* PlacesTableViewCell.swift */; };
 		2D47595727D2689E00333474 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595627D2689E00333474 /* PlaceDetailViewController.swift */; };
 		2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */; };
-		2D47595B27D3C06E00333474 /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595A27D3C06E00333474 /* DividerView.swift */; };
 		2D47595D27D6CF6E00333474 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595C27D6CF6E00333474 /* MapViewController.swift */; };
 		2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595E27D6CFEC00333474 /* ListViewController.swift */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
@@ -52,7 +51,6 @@
 		2D47595227D23BF300333474 /* PlacesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewCell.swift; sourceTree = "<group>"; };
 		2D47595627D2689E00333474 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndSubtitleView.swift; sourceTree = "<group>"; };
-		2D47595A27D3C06E00333474 /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		2D47595C27D6CF6E00333474 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D47595E27D6CFEC00333474 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */,
 				2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */,
 				2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */,
-				2D47595A27D3C06E00333474 /* DividerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 				2D47595127D167F300333474 /* PlaceViewModel.swift in Sources */,
 				2D47594927D108A700333474 /* SettingsViewController.swift in Sources */,
 				2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */,
-				2D47595B27D3C06E00333474 /* DividerView.swift in Sources */,
 				2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */,
 				2DF1C3F727CA249900D665AB /* Slide.swift in Sources */,
 			);
