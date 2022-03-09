@@ -123,6 +123,12 @@ extension PlacesTableViewCell {
         if PersistanceManager.shared.locationEnabled {
             distanceLabel.text = viewModel.distance
         }
+        
+        if PersistanceManager.shared.locationEnabled {
+            distanceLabel.isHidden = false
+        } else {
+            distanceLabel.isHidden = true
+        }
        
     }
     

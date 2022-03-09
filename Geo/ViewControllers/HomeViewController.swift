@@ -12,7 +12,8 @@ class HomeViewController: UIViewController {
     
     private var userViewModel = UserViewModel()
     private var placesListViewModel = PlaceListViewModel()
-    
+    var locationManager = CLLocationManager()
+
     //MARK: - UI Elements
     
     private let labelStackView: UIStackView = {
@@ -68,7 +69,7 @@ class HomeViewController: UIViewController {
         layoutUI()
         
         setupTableView()
-        
+        getUserLocation()
         fetchData()
     }
     
@@ -81,6 +82,23 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.async { [weak self] in
             self?.placesTableView.reloadData()
+        }
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+
+            switch locationManager.authorizationStatus {
+            case .denied, .restricted:
+                PersistanceManager.shared.setupLocationEnabled(enabled: false)
+            case .authorizedAlways, .authorizedWhenInUse:
+                PersistanceManager.shared.setupLocationEnabled(enabled: true)
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                break
+            }
+        } else {
+            PersistanceManager.shared.setupLocationEnabled(enabled: false)
         }
     }
 }
@@ -192,12 +210,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.configure(with: viewModel)
         
-        if CLLocationManager.locationServicesEnabled() {
-            cell.distanceLabel.isHidden = false
-        } else {
-            cell.distanceLabel.isHidden = true
-        }
-        
         return cell
         
     }
@@ -229,3 +241,28 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - CLLocationManager Delegate
+
+extension HomeViewController: CLLocationManagerDelegate {
+    
+    func getUserLocation() {
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0] as CLLocation
+        
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        
+        PersistanceManager.shared.saveUserLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}

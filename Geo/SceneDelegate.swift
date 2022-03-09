@@ -94,7 +94,6 @@ extension SceneDelegate {
 extension SceneDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         
-        PersistanceManager.shared.setupLocationEnabled(enabled: false)
         UserDefaults.standard.set(true, forKey: PersistanceManager.Keys.hasOnboarded.rawValue)
         
         setRootViewController(vc: navSignInVC)

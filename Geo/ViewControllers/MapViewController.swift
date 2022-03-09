@@ -91,16 +91,28 @@ extension MapViewController: MKMapViewDelegate {
  
     func setupMapView() {
         mapView.delegate = self
-                         
-        let lat = PersistanceManager.shared.latitude
-        let long = PersistanceManager.shared.longitude
-        let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         
-        let region = MKCoordinateRegion(center: location, span: span)
+
         
-        mapView.setRegion(region, animated: true)
-        
+        if !PersistanceManager.shared.locationEnabled {
+            var defaultRegion: MKCoordinateRegion?
+            defaultRegion = mapView.region
+            
+            if let region = defaultRegion {
+                mapView.setRegion(region, animated: true)
+            }
+        } else {
+            let lat = PersistanceManager.shared.latitude
+            let long = PersistanceManager.shared.longitude
+            
+            let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            
+            let region = MKCoordinateRegion(center: location, span: span)
+            
+            mapView.setRegion(region, animated: true)
+        }
+
         let places = placesListViewModel.places
         
         var index = 0
