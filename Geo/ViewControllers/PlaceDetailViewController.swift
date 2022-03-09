@@ -63,7 +63,26 @@ class PlaceDetailViewController: UIViewController {
         
         return view
     }()
+    
+    private let hintView: TitleAndSubtitleView = {
+        let view = TitleAndSubtitleView()
+        
+        return view
+    }()
+    
+    private let thirdDividerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .secondarySystemBackground
+        
+        return view
+    }()
 
+    private let descriptionView: TitleAndSubtitleView = {
+        let view = TitleAndSubtitleView()
+        
+        return view
+    }()
     
     //MARK: - Init
     
@@ -109,6 +128,9 @@ extension PlaceDetailViewController {
         difficultySizeStackView.addArrangedSubview(difficultyView)
         difficultySizeStackView.addArrangedSubview(sizeView)
         mainStackView.addArrangedSubview(secondDividerView)
+        mainStackView.addArrangedSubview(hintView)
+        mainStackView.addArrangedSubview(thirdDividerView)
+        mainStackView.addArrangedSubview(descriptionView)
     }
     
     func layoutUI() {
@@ -116,13 +138,12 @@ extension PlaceDetailViewController {
         NSLayoutConstraint.activate([
             
             mainStackView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
-            mainStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: mainStackView.trailingAnchor, multiplier: 1),
-            
-            difficultySizeStackView.heightAnchor.constraint(equalToConstant: 75),
+            mainStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: mainStackView.trailingAnchor, multiplier: 2),
             
             dividerView.heightAnchor.constraint(equalToConstant: 2),
             secondDividerView.heightAnchor.constraint(equalToConstant: 2),
+            thirdDividerView.heightAnchor.constraint(equalToConstant: 2)
         ])
         
     }
@@ -152,6 +173,12 @@ extension PlaceDetailViewController {
         
         sizeView.titleLabel.text = "Size"
         sizeView.subtitleLabel.text = viewModel.size
+        
+        hintView.titleLabel.text = "Hint"
+        hintView.subtitleLabel.text = viewModel.hint
+        
+        descriptionView.titleLabel.text = "Description"
+        descriptionView.subtitleLabel.text = viewModel.description
     }
     
 }

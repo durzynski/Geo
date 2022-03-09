@@ -23,13 +23,14 @@ class TitleAndSubtitleView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.font = .rounded(ofSize: 18, weight: .medium)
         return label
     }()
     
     let subtitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .rounded(ofSize: 16, weight: .medium)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -66,8 +67,11 @@ extension TitleAndSubtitleView {
     func layoutUI() {
 
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 0),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 0),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 0),
+            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 0),
+            
         ])
     }
     

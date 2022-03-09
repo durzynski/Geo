@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         if AuthManager.shared.isSignedIn {
-            setRootViewController(vc: onboardingVC)
+            setRootViewController(vc: mainVC)
         } else if PersistanceManager.shared.hasOnboarded {
             displayLogin()
         } else {
