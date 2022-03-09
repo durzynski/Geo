@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D02954027D71BD400E2E8C0 /* PlaceMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */; };
 		2D02954227D7EE5F00E2E8C0 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02954127D7EE5F00E2E8C0 /* EmptyTableViewCell.swift */; };
+		2D02954627D822C500E2E8C0 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02954527D822C500E2E8C0 /* SettingsTableViewCell.swift */; };
+		2D02954827D828B800E2E8C0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D02954727D828B800E2E8C0 /* Settings.swift */; };
 		2D47594927D108A700333474 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594827D108A700333474 /* SettingsViewController.swift */; };
 		2D47594B27D109C000333474 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594A27D109C000333474 /* HomeViewController.swift */; };
 		2D47594D27D10F5F00333474 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47594C27D10F5F00333474 /* UserViewModel.swift */; };
@@ -19,6 +21,8 @@
 		2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */; };
 		2D47595D27D6CF6E00333474 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595C27D6CF6E00333474 /* MapViewController.swift */; };
 		2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595E27D6CFEC00333474 /* ListViewController.swift */; };
+		2D4D04D627D8358B00F3FAFE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D04D527D8358B00F3FAFE /* SettingsViewModel.swift */; };
+		2D4D04D927D840C600F3FAFE /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D04D827D840C600F3FAFE /* SignOutViewController.swift */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
 		2D635C4827D01F830048D75E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4727D01F820048D75E /* User.swift */; };
 		2D635C4A27D020CA0048D75E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4927D020CA0048D75E /* DatabaseManager.swift */; };
@@ -47,6 +51,8 @@
 		01C2A344DC4CA0A98AEDBEEB /* Pods_Geo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapAnnotation.swift; sourceTree = "<group>"; };
 		2D02954127D7EE5F00E2E8C0 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		2D02954527D822C500E2E8C0 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2D02954727D828B800E2E8C0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		2D47594827D108A700333474 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D47594A27D109C000333474 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2D47594C27D10F5F00333474 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 		2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndSubtitleView.swift; sourceTree = "<group>"; };
 		2D47595C27D6CF6E00333474 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D47595E27D6CFEC00333474 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2D4D04D527D8358B00F3FAFE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		2D4D04D827D840C600F3FAFE /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D635C4727D01F820048D75E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D635C4927D020CA0048D75E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -96,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D4D04D727D840B200F3FAFE /* SettingsViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D4D04D827D840C600F3FAFE /* SignOutViewController.swift */,
+			);
+			path = SettingsViewControllers;
+			sourceTree = "<group>";
+		};
 		2DF1C3C927C913A400D665AB = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +154,7 @@
 				2D47595C27D6CF6E00333474 /* MapViewController.swift */,
 				2D47595E27D6CFEC00333474 /* ListViewController.swift */,
 				2D47594827D108A700333474 /* SettingsViewController.swift */,
+				2D4D04D727D840B200F3FAFE /* SettingsViewControllers */,
 				2D47595627D2689E00333474 /* PlaceDetailViewController.swift */,
 				2DF1C40127CA913E00D665AB /* Login */,
 				2DF1C3F127CA219700D665AB /* Onboarding */,
@@ -151,6 +168,7 @@
 				2DF1C3F627CA249900D665AB /* Slide.swift */,
 				2D635C4727D01F820048D75E /* User.swift */,
 				2D47594E27D1354700333474 /* Place.swift */,
+				2D02954727D828B800E2E8C0 /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +179,7 @@
 				2DF1C3F827CA254000D665AB /* SlideViewModel.swift */,
 				2D47594C27D10F5F00333474 /* UserViewModel.swift */,
 				2D47595027D167F300333474 /* PlaceViewModel.swift */,
+				2D4D04D527D8358B00F3FAFE /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -229,6 +248,7 @@
 				2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */,
 				2D47595227D23BF300333474 /* PlacesTableViewCell.swift */,
 				2D02954127D7EE5F00E2E8C0 /* EmptyTableViewCell.swift */,
+				2D02954527D822C500E2E8C0 /* SettingsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -378,10 +398,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D02954827D828B800E2E8C0 /* Settings.swift in Sources */,
 				2D635C4827D01F830048D75E /* User.swift in Sources */,
 				2D47594F27D1354700333474 /* Place.swift in Sources */,
 				2D02954227D7EE5F00E2E8C0 /* EmptyTableViewCell.swift in Sources */,
 				2D47595327D23BF300333474 /* PlacesTableViewCell.swift in Sources */,
+				2D4D04D627D8358B00F3FAFE /* SettingsViewModel.swift in Sources */,
 				2DF1C41227CD139400D665AB /* PersistanceManager.swift in Sources */,
 				2DF1C41427CD2F1B00D665AB /* AuthManager.swift in Sources */,
 				2D47595727D2689E00333474 /* PlaceDetailViewController.swift in Sources */,
@@ -393,7 +415,9 @@
 				2D47594D27D10F5F00333474 /* UserViewModel.swift in Sources */,
 				2D635C4A27D020CA0048D75E /* DatabaseManager.swift in Sources */,
 				2DF1C3DA27C913A400D665AB /* SignInViewController.swift in Sources */,
+				2D02954627D822C500E2E8C0 /* SettingsTableViewCell.swift in Sources */,
 				2DF1C40E27CD0F9F00D665AB /* SignUpViewController.swift in Sources */,
+				2D4D04D927D840C600F3FAFE /* SignOutViewController.swift in Sources */,
 				2D635C4C27D02A9E0048D75E /* MainTabBarController.swift in Sources */,
 				2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */,
 				2DF1C3D627C913A400D665AB /* AppDelegate.swift in Sources */,

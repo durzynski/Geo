@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let signUpVC = SignUpViewController()
     private let onboardingVC = OnboardingViewController()
     private let mainVC = MainTabBarController()
+    private let signOutVC = SignOutViewController()
     
     var window: UIWindow?
 
@@ -25,7 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
+        signOutVC.delegate = self
         onboardingVC.delegate = self
+        signInVC.delegate = self
+        registerNotifications()
+        
         
         if AuthManager.shared.isSignedIn {
             setRootViewController(vc: mainVC)
@@ -58,6 +63,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate {
     
+    private func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didSignOut), name: .signOut, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSignIn), name: .signIn, object: nil)
+    }
+    
     func displayLogin() {
         setRootViewController(vc: navSignInVC)
     }
@@ -88,3 +98,32 @@ extension SceneDelegate: OnboardingViewControllerDelegate {
         setRootViewController(vc: navSignInVC)
     }
 }
+
+//MARK: - SignOutViewControllerDelegate {
+
+extension SceneDelegate: SignOutViewControllerDelegate {
+    
+    @objc func didSignOut() {
+
+        AuthManager.shared.signOut { [weak self] success in
+            guard let vc = self?.navSignInVC else {
+                return
+            }
+            self?.setRootViewController(vc: vc)
+            
+        }
+    }
+    
+}
+
+//MARK: - SignInViewControllerDelegate {
+
+extension SceneDelegate: SignInViewControllerDelegate {
+    @objc func didSignIn() {
+    
+        mainVC.selectedIndex = 0
+        
+        setRootViewController(vc: mainVC)
+    }
+}
+

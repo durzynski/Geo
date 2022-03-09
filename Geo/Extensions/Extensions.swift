@@ -113,3 +113,11 @@ extension MKAnnotationView {
     }
     
 }
+
+//MARK: - Notification.Name
+
+extension Notification.Name {
+    static let signOut = Notification.Name("Signout")
+    
+    static let signIn = Notification.Name("Signin")
+}

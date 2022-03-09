@@ -71,8 +71,7 @@ class HomeViewController: UIViewController {
         setupTableView()
         getUserLocation()
         
-        //fetchData()
-        
+        fetchData()
     }
     
     
@@ -80,15 +79,15 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        welcomeLabel.text = "Welcome \(userViewModel.name)"
+        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
             
-            DispatchQueue.main.async {
-                self.placesTableView.reloadData()
-                self.fetchData()
+            DispatchQueue.main.async { [weak self] in
+                self?.placesTableView.reloadData()
             }
         }
-        
     }
     
 }
@@ -99,7 +98,6 @@ extension HomeViewController {
     
     func setupUI() {
         
-        welcomeLabel.text = "Welcome \(userViewModel.name)"
         
         view.addSubview(labelStackView)
         labelStackView.addArrangedSubview(welcomeLabel)

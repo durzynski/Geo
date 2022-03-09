@@ -100,6 +100,13 @@ extension PlacesTableViewCell {
         difficultyColorView.layer.cornerRadius = cornerRadius
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        placeNameLabel.text = nil
+        distanceLabel.text = nil
+    }
+    
 }
 
 //MARK: - Configure

@@ -8,7 +8,13 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+protocol SignInViewControllerDelegate: AnyObject {
+    func didSignIn()
+}
+
 class SignInViewController: UIViewController {
+    
+    weak var delegate: SignInViewControllerDelegate?
     
     private var email: String {
         return emailTextFieldView.textField.text ?? ""
@@ -203,18 +209,15 @@ extension SignInViewController {
 extension SignInViewController {
     @objc func signInTapped() {
         
-        AuthManager.shared.signIn(email: email, password: password) { result in
+        AuthManager.shared.signIn(email: email, password: password) {  [weak self] result in
             switch result {
             case .success:
-                DispatchQueue.main.async { [weak self] in
-                    let vc = MainTabBarController()
-                    vc.modalPresentationStyle = .fullScreen
-                    vc.modalTransitionStyle = .crossDissolve
-                    self?.present(vc, animated: true)
-                }
+                
+                NotificationCenter.default.post(name: .signIn, object: nil)
+                self?.delegate?.didSignIn()
 
             case .failure(_):
-                self.presentSignInError(title: "Sign In Error", message: "Your email or password is incorrect. Please try again.")
+                self?.presentSignInError(title: "Sign In Error", message: "Your email or password is incorrect. Please try again.")
             }
         }
         
@@ -223,13 +226,9 @@ extension SignInViewController {
     @objc func signUpTapped() {
         
         let vc = SignUpViewController()
-        vc.completion = {
-            DispatchQueue.main.async { [weak self] in
-                let vc = MainTabBarController()
-                vc.modalPresentationStyle = .fullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                self?.present(vc, animated: true)
-            }
+        vc.completion = { [weak self] in 
+            NotificationCenter.default.post(name: .signIn, object: nil)
+            self?.delegate?.didSignIn()
         }
         navigationController?.pushViewController(vc, animated: true)
     }

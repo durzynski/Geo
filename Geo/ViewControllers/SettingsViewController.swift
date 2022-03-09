@@ -9,65 +9,125 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    let stackView = UIStackView()
-    let label = UILabel()
-    let button = UIButton()
+    private var settingsListViewModel = SettingsSectionListViewModel()
+    
+    
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.isScrollEnabled = false
+        
+        return tableView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         styleUI()
         layoutUI()
+        configureTableView()
+        configureViewModel()
     }
 }
 
 
 extension SettingsViewController {
     func styleUI() {
+        title = "Settings"
         
-        view.backgroundColor = .systemBackground
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .preferredFont(forTextStyle: .title1)
-        
-        button.setTitle("Sing Out", for: .normal)
-        button.configuration = .filled()
-        button.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
+        view.addSubview(tableView)
     }
     
     func layoutUI() {
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(button)
-        view.addSubview(stackView)
-        
-        label.text = UserDefaults.standard.string(forKey: "name")
         
         NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            tableView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 0),
+            tableView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 0),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: tableView.trailingAnchor, multiplier: 0),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: tableView.bottomAnchor, multiplier: 0)
         ])
+        
+    }
+    
+    private func configureViewModel() {
+        
+        settingsListViewModel.sections =  [
+            
+            SettingsSection(title: "Preferences", options: [
+                
+                SettingsOption(title: "First", icon: UIImage(systemName: "airplane") ?? UIImage(), iconBackgroundColor: .red, handler: {
+                    print("First")
+                }),
+                
+                SettingsOption(title: "Second", icon: UIImage(systemName: "airplane") ?? UIImage(), iconBackgroundColor: .red, handler: {
+                    print("Second")
+                }),
+                
+            ]),
+            
+            SettingsSection(title: "User", options: [
+                
+                SettingsOption(title: "Sign out", icon: UIImage(systemName: "delete.forward.fill") ?? UIImage(), iconBackgroundColor: .red, handler: { [weak self] in
+                    
+                    let vc = SignOutViewController()
+                    
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                    
+                }),
+                
+            ]),
+        ]
+        
     }
 }
 
-extension SettingsViewController {
+//MARK: - Tableview Delegate & Datasource
+
+extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    @objc func signOutTapped() {
+    func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return settingsListViewModel.headerForSection(section)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return settingsListViewModel.numberOfSections()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return settingsListViewModel.numberOfRowsInSections(section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        AuthManager.shared.signOut { [weak self] success in
-            
-            DispatchQueue.main.async {
-                let vc = UINavigationController(rootViewController: SignInViewController())
-                vc.modalPresentationStyle = .fullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                self?.present(vc, animated: true, completion: nil)
-                
-            }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableViewCell.identifier, for: indexPath) as? SettingsTableViewCell else {
+            fatalError()
         }
+        
+        let viewModel = settingsListViewModel.optionsAtIndex(section: indexPath.section, index: indexPath.row)
+        
+        cell.configure(viewModel: viewModel)
+        
+        return cell
+        
         
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SettingsTableViewCell.prefferedHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let viewModel = settingsListViewModel.optionsAtIndex(section: indexPath.section, index: indexPath.row)
+        
+        viewModel.handler()
+        
+    }
 }
