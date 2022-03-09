@@ -12,9 +12,9 @@ import Foundation
 struct SlideListViewModel {
     
     let slides: [Slide] = [
-        Slide(animationName: "mapa", title: "Screen number 1"),
-        Slide(animationName: "travelling-icon-animation", title: "Screen 2"),
-        Slide(animationName: "box-empty", title: "Screen 3"),
+        Slide(animationName: "world", title: "Explore the world."),
+        Slide(animationName: "mapa", title: "Discover amazing places."),
+        Slide(animationName: "box-empty", title: "Find unforgettable things!"),
     ]
 }
 

@@ -23,6 +23,7 @@
 		2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47595E27D6CFEC00333474 /* ListViewController.swift */; };
 		2D4D04D627D8358B00F3FAFE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D04D527D8358B00F3FAFE /* SettingsViewModel.swift */; };
 		2D4D04D927D840C600F3FAFE /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D04D827D840C600F3FAFE /* SignOutViewController.swift */; };
+		2D4D04DB27D8F62800F3FAFE /* world.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D4D04DA27D8F62800F3FAFE /* world.json */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
 		2D635C4827D01F830048D75E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4727D01F820048D75E /* User.swift */; };
 		2D635C4A27D020CA0048D75E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4927D020CA0048D75E /* DatabaseManager.swift */; };
@@ -38,7 +39,6 @@
 		2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */; };
 		2DF1C40327CA93E500D665AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C40227CA93E500D665AB /* Extensions.swift */; };
 		2DF1C40627CA956200D665AB /* mapa.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C40427CA956200D665AB /* mapa.json */; };
-		2DF1C40727CA956200D665AB /* travelling-icon-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C40527CA956200D665AB /* travelling-icon-animation.json */; };
 		2DF1C40927CA966100D665AB /* box-empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1C40827CA966100D665AB /* box-empty.json */; };
 		2DF1C40C27CBDB4800D665AB /* LoginTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */; };
 		2DF1C40E27CD0F9F00D665AB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1C40D27CD0F9F00D665AB /* SignUpViewController.swift */; };
@@ -65,6 +65,7 @@
 		2D47595E27D6CFEC00333474 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2D4D04D527D8358B00F3FAFE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2D4D04D827D840C600F3FAFE /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
+		2D4D04DA27D8F62800F3FAFE /* world.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = world.json; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D635C4727D01F820048D75E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D635C4927D020CA0048D75E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		2DF1C3FC27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		2DF1C40227CA93E500D665AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2DF1C40427CA956200D665AB /* mapa.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapa.json; sourceTree = "<group>"; };
-		2DF1C40527CA956200D665AB /* travelling-icon-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "travelling-icon-animation.json"; sourceTree = "<group>"; };
 		2DF1C40827CA966100D665AB /* box-empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "box-empty.json"; sourceTree = "<group>"; };
 		2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextFieldView.swift; sourceTree = "<group>"; };
 		2DF1C40D27CD0F9F00D665AB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 			children = (
 				2DF1C40827CA966100D665AB /* box-empty.json */,
 				2DF1C40427CA956200D665AB /* mapa.json */,
-				2DF1C40527CA956200D665AB /* travelling-icon-animation.json */,
+				2D4D04DA27D8F62800F3FAFE /* world.json */,
 			);
 			name = LottieAnimations;
 			sourceTree = "<group>";
@@ -341,9 +341,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF1C40627CA956200D665AB /* mapa.json in Resources */,
+				2D4D04DB27D8F62800F3FAFE /* world.json in Resources */,
 				2DF1C40927CA966100D665AB /* box-empty.json in Resources */,
 				2DF1C3E227C913A600D665AB /* LaunchScreen.storyboard in Resources */,
-				2DF1C40727CA956200D665AB /* travelling-icon-animation.json in Resources */,
 				2DF1C3DF27C913A600D665AB /* Assets.xcassets in Resources */,
 				2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */,
 			);
