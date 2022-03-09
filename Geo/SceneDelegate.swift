@@ -31,6 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         signInVC.delegate = self
         registerNotifications()
         
+    
         
         if AuthManager.shared.isSignedIn {
             setRootViewController(vc: mainVC)
@@ -93,6 +94,7 @@ extension SceneDelegate {
 extension SceneDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         
+        PersistanceManager.shared.setupLocationEnabled(enabled: false)
         UserDefaults.standard.set(true, forKey: PersistanceManager.Keys.hasOnboarded.rawValue)
         
         setRootViewController(vc: navSignInVC)

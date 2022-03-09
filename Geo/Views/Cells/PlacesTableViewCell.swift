@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class PlacesTableViewCell: UITableViewCell {
     
@@ -37,10 +38,10 @@ class PlacesTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let distanceLabel: UILabel = {
+    let distanceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
-
+        label.isHidden = true
         
         return label
     }()
@@ -118,8 +119,11 @@ extension PlacesTableViewCell {
         difficultyColorView.backgroundColor = viewModel.difficultyColor
         
         placeNameLabel.text = viewModel.name
-        distanceLabel.text = viewModel.distance
         
+        if PersistanceManager.shared.locationEnabled {
+            distanceLabel.text = viewModel.distance
+        }
+       
     }
     
 }

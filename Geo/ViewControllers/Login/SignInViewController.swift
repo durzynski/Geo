@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import CoreLocation
 
 protocol SignInViewControllerDelegate: AnyObject {
     func didSignIn()
@@ -15,6 +16,7 @@ protocol SignInViewControllerDelegate: AnyObject {
 class SignInViewController: UIViewController {
     
     weak var delegate: SignInViewControllerDelegate?
+    var locationManager = CLLocationManager()
     
     private var email: String {
         return emailTextFieldView.textField.text ?? ""
@@ -139,9 +141,32 @@ class SignInViewController: UIViewController {
         setupUI()
         layoutUI()
         setupNavigation()
-    
+        getUserLocation()
+        
         emailTextFieldView.textField.delegate = self
         passwordTextFieldView.textField.delegate = self
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+
+            switch locationManager.authorizationStatus {
+            case .denied, .restricted:
+                PersistanceManager.shared.setupLocationEnabled(enabled: false)
+            case .authorizedAlways, .authorizedWhenInUse:
+                PersistanceManager.shared.setupLocationEnabled(enabled: true)
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            default:
+                break
+            }
+            
+            
+            
+        } else {
+            
+            PersistanceManager.shared.setupLocationEnabled(enabled: false)
+        
+        }
         
     }
 
@@ -257,4 +282,30 @@ extension SignInViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+//MARK: - CLLocationManager Delegate
+
+extension SignInViewController: CLLocationManagerDelegate {
+    
+    func getUserLocation() {
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0] as CLLocation
+        
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        
+        PersistanceManager.shared.saveUserLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
 }

@@ -19,6 +19,7 @@ struct PersistanceManager {
         case name
         case latitude
         case longitude
+        case locationEnabled
     }
     
     var hasOnboarded: Bool {
@@ -41,16 +42,24 @@ struct PersistanceManager {
         return userDefaults.double(forKey: Keys.longitude.rawValue)
     }
     
+    var locationEnabled: Bool {
+        return userDefaults.bool(forKey: Keys.locationEnabled.rawValue)
+    }
+    
     func setupUser(user: User) {
         
-        UserDefaults.standard.set(user.name, forKey: Keys.name.rawValue)
-        UserDefaults.standard.set(user.email, forKey: Keys.email.rawValue)
+        userDefaults.set(user.name, forKey: Keys.name.rawValue)
+        userDefaults.set(user.email, forKey: Keys.email.rawValue)
         
     }
     
     func saveUserLocation(latitude: Double, longitude: Double) {
-        UserDefaults.standard.set(latitude, forKey: Keys.latitude.rawValue)
-        UserDefaults.standard.set(longitude, forKey: Keys.longitude.rawValue)
+        userDefaults.set(latitude, forKey: Keys.latitude.rawValue)
+        userDefaults.set(longitude, forKey: Keys.longitude.rawValue)
+    }
+    
+    func setupLocationEnabled(enabled: Bool) {
+        userDefaults.set(enabled, forKey: Keys.locationEnabled.rawValue)
     }
     
 }

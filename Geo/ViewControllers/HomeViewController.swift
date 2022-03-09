@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
     private var userViewModel = UserViewModel()
     private var placesListViewModel = PlaceListViewModel()
     
-    var locationManager = CLLocationManager()
     //MARK: - UI Elements
     
     private let labelStackView: UIStackView = {
@@ -52,7 +51,7 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
-    private let resfreshControl: UIRefreshControl = {
+    private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -69,7 +68,6 @@ class HomeViewController: UIViewController {
         layoutUI()
         
         setupTableView()
-        getUserLocation()
         
         fetchData()
     }
@@ -78,18 +76,13 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         welcomeLabel.text = "Welcome \(userViewModel.name)"
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
-            
-            DispatchQueue.main.async { [weak self] in
-                self?.placesTableView.reloadData()
-            }
+        DispatchQueue.main.async { [weak self] in
+            self?.placesTableView.reloadData()
         }
     }
-    
 }
 
 //MARK: - Configure UI
@@ -139,7 +132,7 @@ extension HomeViewController {
                 
                 DispatchQueue.main.async {
                     self?.placesTableView.reloadData()
-                    self?.resfreshControl.endRefreshing()
+                    self?.refreshControl.endRefreshing()
                 }
             }
         }
@@ -164,7 +157,7 @@ extension HomeViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setupTableView() {
-        placesTableView.addSubview(resfreshControl)
+        placesTableView.addSubview(refreshControl)
         placesTableView.delegate = self
         placesTableView.dataSource = self
     }
@@ -199,6 +192,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.configure(with: viewModel)
         
+        if CLLocationManager.locationServicesEnabled() {
+            cell.distanceLabel.isHidden = false
+        } else {
+            cell.distanceLabel.isHidden = true
+        }
+        
         return cell
         
     }
@@ -230,28 +229,3 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - CLLocationManager Delegate
-
-extension HomeViewController: CLLocationManagerDelegate {
-    
-    func getUserLocation() {
-        
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization() 
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation: CLLocation = locations[0] as CLLocation
-        
-        let latitude = userLocation.coordinate.latitude
-        let longitude = userLocation.coordinate.longitude
-        
-        PersistanceManager.shared.saveUserLocation(latitude: latitude, longitude: longitude)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
-    }
-}
