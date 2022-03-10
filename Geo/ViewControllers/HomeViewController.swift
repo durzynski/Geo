@@ -85,7 +85,7 @@ class HomeViewController: UIViewController {
         }
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
 
             switch locationManager.authorizationStatus {
             case .denied, .restricted:

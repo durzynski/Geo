@@ -11,7 +11,7 @@ import MapKit
 class MapViewController: UIViewController {
     
     private var placesListViewModel = PlaceListViewModel()
-    
+    private var locationManager = CLLocationManager()
     //MARK: - UI Elements
     
     private let mapView: MKMapView = {
@@ -36,6 +36,18 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.mapView.reloadInputViews()
+        }
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.stopUpdatingLocation()
         }
     }
 }
