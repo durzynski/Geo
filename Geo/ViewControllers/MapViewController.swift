@@ -172,7 +172,7 @@ extension MapViewController: MKMapViewDelegate {
         
         if let placeAnnotation = annotation as? PlaceMapAnnotation {
             placeAnnotationView?.set(image: UIImage(systemName: "mappin.circle.fill") ?? UIImage(), with: placeAnnotation.color ?? UIColor.black)
-            placeAnnotationView?.frame.size = CGSize(width: 40, height: 40)
+            placeAnnotationView?.frame.size = CGSize(width: 30, height: 30)
         }
         
         return placeAnnotationView

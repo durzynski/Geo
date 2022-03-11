@@ -57,11 +57,11 @@ extension SettingsViewController {
             
             SettingsSection(title: "Preferences", options: [
                 
-                SettingsOption(title: "First", icon: UIImage(systemName: "airplane") ?? UIImage(), iconBackgroundColor: .red, handler: {
+                SettingsOption(title: "First", icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemBlue, handler: {
                     print("First")
                 }),
                 
-                SettingsOption(title: "Second", icon: UIImage(systemName: "airplane") ?? UIImage(), iconBackgroundColor: .red, handler: {
+                SettingsOption(title: "Second", icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemGreen, handler: {
                     print("Second")
                 }),
                 
@@ -69,7 +69,7 @@ extension SettingsViewController {
             
             SettingsSection(title: "User", options: [
                 
-                SettingsOption(title: "Sign out", icon: UIImage(systemName: "delete.forward.fill") ?? UIImage(), iconBackgroundColor: .red, handler: { [weak self] in
+                SettingsOption(title: "Sign out", icon: UIImage(systemName: "person.fill") ?? UIImage(), iconBackgroundColor: .systemRed, handler: { [weak self] in
                     
                     let vc = SignOutViewController()
                     

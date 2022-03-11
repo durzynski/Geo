@@ -186,7 +186,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
         }
         
-        return placesListViewModel.numberOfRowsInSection(section)
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

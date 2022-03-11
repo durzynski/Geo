@@ -48,6 +48,8 @@ extension PlaceListViewModel {
         return sorted[index]
     }
     
+    
+    
 }
 
 //MARK: - Single Element

@@ -140,7 +140,6 @@ class SignInViewController: UIViewController {
         
         setupUI()
         layoutUI()
-        setupNavigation()
         
         emailTextFieldView.textField.delegate = self
         passwordTextFieldView.textField.delegate = self
@@ -191,18 +190,6 @@ extension SignInViewController {
             logoImageView.widthAnchor.constraint(equalTo: logoImageView.heightAnchor),
 
         ])
-        
-    }
-    
-}
-
-//MARK: - Setup Navigation
-
-extension SignInViewController {
-    
-    func setupNavigation() {
-        
-        navigationController?.navigationBar.tintColor = .label
         
     }
     
