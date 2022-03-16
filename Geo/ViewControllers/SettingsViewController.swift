@@ -10,9 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     private var settingsListViewModel = SettingsSectionListViewModel()
-    
-    
-    
+
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SettingsTableViewCell.self, forCellReuseIdentifier: SettingsTableViewCell.identifier)
@@ -124,6 +122,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         
         let viewModel = settingsListViewModel.optionsAtIndex(section: indexPath.section, index: indexPath.row)
         

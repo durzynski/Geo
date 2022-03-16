@@ -88,6 +88,7 @@ extension SettingsTableViewCell {
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: contentView.topAnchor, multiplier: 0),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: contentView.leadingAnchor, multiplier: 2),
             contentView.bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 0),
+            contentView.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 2),
             
             cellImageIcon.centerXAnchor.constraint(equalTo: cellIconContainer.centerXAnchor),
             cellImageIcon.centerYAnchor.constraint(equalTo: cellIconContainer.centerYAnchor),

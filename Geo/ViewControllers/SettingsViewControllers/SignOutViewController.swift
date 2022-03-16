@@ -46,6 +46,7 @@ class SignOutViewController: UIViewController {
 extension SignOutViewController {
     private func setupUI() {
         
+        view.backgroundColor = .systemBackground
         view.addSubview(signOutButton)
         
     }
