@@ -12,6 +12,7 @@ class MapViewController: UIViewController {
     
     private var placesListViewModel = PlaceListViewModel()
     private var locationManager = CLLocationManager()
+    
     //MARK: - UI Elements
     
     private let mapView: MKMapView = {
@@ -30,6 +31,7 @@ class MapViewController: UIViewController {
         setup()
         layout()
 
+        getUserLocation()
         fetchData()
     }
     
@@ -100,12 +102,11 @@ extension MapViewController {
 //MARK: - MapView Delegate
 
 extension MapViewController: MKMapViewDelegate {
+    
  
     func setupMapView() {
         mapView.delegate = self
-        
 
-        
         if !PersistanceManager.shared.locationEnabled {
             var defaultRegion: MKCoordinateRegion?
             defaultRegion = mapView.region
@@ -118,7 +119,7 @@ extension MapViewController: MKMapViewDelegate {
             let long = PersistanceManager.shared.longitude
             
             let location = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+            let span = MKCoordinateSpan(latitudeDelta: 0.04, longitudeDelta: 0.04)
             
             let region = MKCoordinateRegion(center: location, span: span)
             
@@ -192,4 +193,30 @@ extension MapViewController: MKMapViewDelegate {
         
     }
 
+}
+
+//MARK: - CLLocationManager Delegate
+
+extension MapViewController: CLLocationManagerDelegate {
+    
+    func getUserLocation() {
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0] as CLLocation
+        
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        
+        PersistanceManager.shared.saveUserLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
 }
