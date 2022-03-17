@@ -31,16 +31,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         signInVC.delegate = self
         registerNotifications()
         
-    
-        
         if AuthManager.shared.isSignedIn {
             setRootViewController(vc: mainVC)
+            print(AuthManager.shared.isSignedIn)
         } else if PersistanceManager.shared.hasOnboarded {
             displayLogin()
         } else {
             setRootViewController(vc: onboardingVC)
-        }
-        
+        }        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -94,7 +92,8 @@ extension SceneDelegate {
 extension SceneDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         
-        UserDefaults.standard.set(true, forKey: PersistanceManager.Keys.hasOnboarded.rawValue)
+        PersistanceManager.shared.setupLengthUnit(unit: "Meters")
+        PersistanceManager.shared.setupHasOnboarded()
         
         setRootViewController(vc: navSignInVC)
     }

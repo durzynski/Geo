@@ -79,6 +79,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         welcomeLabel.text = "Welcome \(userViewModel.name)"
+        getUserLocation()
         
         DispatchQueue.main.async { [weak self] in
             self?.placesTableView.reloadData()
@@ -165,7 +166,7 @@ extension HomeViewController {
     @objc func refresh() {
         
         fetchData()
-        
+        getUserLocation()
     }
     
 }
@@ -220,7 +221,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return placesTableView.frame.size.height 
         }
         
-        return PlacesTableViewCell.prefferedHeight
+        return PlacesTableViewCell.preferredHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

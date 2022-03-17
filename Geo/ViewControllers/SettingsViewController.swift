@@ -55,14 +55,11 @@ extension SettingsViewController {
             
             SettingsSection(title: "Preferences", options: [
                 
-                SettingsOption(title: "First", icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemBlue, handler: {
-                    print("First")
+                SettingsOption(title: "Units", icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemBlue, handler: { [weak self] in
+                    let vc = UnitSettingsViewController()
+                    
+                    self?.navigationController?.pushViewController(vc, animated: true)
                 }),
-                
-                SettingsOption(title: "Second", icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemGreen, handler: {
-                    print("Second")
-                }),
-                
             ]),
             
             SettingsSection(title: "User", options: [

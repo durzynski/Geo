@@ -159,7 +159,7 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
             return listTableView.frame.size.height
         }
         
-        return PlacesTableViewCell.prefferedHeight
+        return PlacesTableViewCell.preferredHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

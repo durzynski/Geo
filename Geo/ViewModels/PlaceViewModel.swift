@@ -118,23 +118,50 @@ extension PlaceViewModel {
         
         let result = Int(placeCoordinate.distance(from: userCoordinate))
         
+        
+        return result
+    }
+    
+    var distanceValueInMiles: Double {
+        let placeCoordinate = CLLocation(latitude: latitude, longitude: longitude)
+        let userCoordinate = CLLocation(latitude: PersistanceManager.shared.latitude, longitude: PersistanceManager.shared.longitude)
+        
+        let result = Double(placeCoordinate.distance(from: userCoordinate)) / 1609.344
+        
         return result
     }
     
     var distance: String {
         
-        let placeCoordinate = CLLocation(latitude: latitude, longitude: longitude)
-        let userCoordinate = CLLocation(latitude: PersistanceManager.shared.latitude, longitude: PersistanceManager.shared.longitude)
+        let unit = PersistanceManager.shared.lengthUnit
+
+        switch unit {
+        case "Meters":
+            
+            if distanceValue >= 1000 {
+                let resultAsKm = Double(distanceValue)/1000
+                let resultString = String(format: "%.2f", resultAsKm)
+                return "Distance: \(resultString) km"
+            }
+            
+            return "Distance: \(distanceValue)m"
         
-        let result = Int(placeCoordinate.distance(from: userCoordinate))
-        
-        if result > 1000 {
-            let resultAsKm = Double(result)/1000
-            let resultString = String(format: "%.1f", resultAsKm)
-            return "Distance: \(resultString) km"
+        case "Miles":
+            
+            let resultString = String(format: "%.2f", distanceValueInMiles)
+            
+            if distanceValueInMiles > 1 {
+                
+                return "Distance: \(resultString) miles"
+            } else {
+                return "Distance: \(resultString) mile"
+            }
+
+        default:
+            return ""
         }
         
-        return "Distance: \(result) m"
+
         
     }
     

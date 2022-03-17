@@ -20,6 +20,7 @@ struct PersistanceManager {
         case latitude
         case longitude
         case locationEnabled
+        case lengthUnit
     }
     
     var hasOnboarded: Bool {
@@ -46,6 +47,14 @@ struct PersistanceManager {
         return userDefaults.bool(forKey: Keys.locationEnabled.rawValue)
     }
     
+    var lengthUnit: String {
+        return userDefaults.string(forKey: Keys.lengthUnit.rawValue) ?? ""
+    }
+    
+    func setupHasOnboarded() {
+        userDefaults.set(true, forKey: PersistanceManager.Keys.hasOnboarded.rawValue)
+    }
+    
     func setupUser(user: User) {
         
         userDefaults.set(user.name, forKey: Keys.name.rawValue)
@@ -60,6 +69,10 @@ struct PersistanceManager {
     
     func setupLocationEnabled(enabled: Bool) {
         userDefaults.set(enabled, forKey: Keys.locationEnabled.rawValue)
+    }
+    
+    func setupLengthUnit(unit: String) {
+        userDefaults.set(unit, forKey: Keys.lengthUnit.rawValue)
     }
     
 }

@@ -12,7 +12,7 @@ import MapKit
 class PlacesTableViewCell: UITableViewCell {
     
     static let identifier = "PlacesTableViewCell"
-    static let prefferedHeight = CGFloat(75)
+    static let preferredHeight = CGFloat(75)
     
     private let difficultyColorView: UIView = {
         let view =  UIView()
