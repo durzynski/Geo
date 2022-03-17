@@ -30,13 +30,7 @@ class PlaceDetailViewController: UIViewController {
         return label
     }()
     
-    private let dividerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondarySystemBackground
-        
-        return view
-    }()
+    private let dividerView = DividerView(frame: .zero)
     
     private let difficultySizeStackView: UIStackView = {
         let stackView = UIStackView()
@@ -46,43 +40,17 @@ class PlaceDetailViewController: UIViewController {
         return stackView
     }()
     
-    private let difficultyView: TitleAndSubtitleView = {
-        let view = TitleAndSubtitleView()
-        return view
-    }()
+    private let difficultyView = TitleAndSubtitleView()
     
-    private let sizeView: TitleAndSubtitleView = {
-        let view = TitleAndSubtitleView()
-        return view
-    }()
+    private let sizeView = TitleAndSubtitleView()
     
-    private let secondDividerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondarySystemBackground
-        
-        return view
-    }()
+    private let secondDividerView = DividerView(frame: .zero)
     
-    private let hintView: TitleAndSubtitleView = {
-        let view = TitleAndSubtitleView()
-        
-        return view
-    }()
+    private let hintView = TitleAndSubtitleView()
     
-    private let thirdDividerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .secondarySystemBackground
-        
-        return view
-    }()
+    private let thirdDividerView = DividerView(frame: .zero)
 
-    private let descriptionView: TitleAndSubtitleView = {
-        let view = TitleAndSubtitleView()
-        
-        return view
-    }()
+    private let descriptionView = TitleAndSubtitleView()
     
     //MARK: - Init
     

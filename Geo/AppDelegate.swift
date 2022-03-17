@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
         
-        print(PersistanceManager.shared.locationEnabled)
-        
         return true
     }
 

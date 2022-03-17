@@ -27,6 +27,7 @@
 		2D4D058727E2190100F3FAFE /* UnitSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058627E2190100F3FAFE /* UnitSettingsViewController.swift */; };
 		2D4D058927E2199300F3FAFE /* UnitSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058827E2199300F3FAFE /* UnitSettingsViewModel.swift */; };
 		2D4D058D27E3574700F3FAFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058C27E3574700F3FAFE /* Constants.swift */; };
+		2D4D058F27E3676000F3FAFE /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058E27E3676000F3FAFE /* DividerView.swift */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
 		2D635C4827D01F830048D75E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4727D01F820048D75E /* User.swift */; };
 		2D635C4A27D020CA0048D75E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4927D020CA0048D75E /* FirebaseManager.swift */; };
@@ -72,6 +73,7 @@
 		2D4D058627E2190100F3FAFE /* UnitSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettingsViewController.swift; sourceTree = "<group>"; };
 		2D4D058827E2199300F3FAFE /* UnitSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettingsViewModel.swift; sourceTree = "<group>"; };
 		2D4D058C27E3574700F3FAFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2D4D058E27E3676000F3FAFE /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D635C4727D01F820048D75E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D635C4927D020CA0048D75E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				2DF1C40A27CBDB3D00D665AB /* Cells */,
 				2DF1C3E027C913A600D665AB /* LaunchScreen.storyboard */,
 				2DF1C40B27CBDB4800D665AB /* LoginTextFieldView.swift */,
+				2D4D058E27E3676000F3FAFE /* DividerView.swift */,
 				2D47595827D3BEC300333474 /* TitleAndSubtitleView.swift */,
 				2D02953F27D71BD400E2E8C0 /* PlaceMapAnnotation.swift */,
 			);
@@ -416,6 +419,7 @@
 				2D4D04D627D8358B00F3FAFE /* SettingsViewModel.swift in Sources */,
 				2DF1C41227CD139400D665AB /* PersistanceManager.swift in Sources */,
 				2DF1C41427CD2F1B00D665AB /* AuthManager.swift in Sources */,
+				2D4D058F27E3676000F3FAFE /* DividerView.swift in Sources */,
 				2D47595727D2689E00333474 /* PlaceDetailViewController.swift in Sources */,
 				2D47594B27D109C000333474 /* HomeViewController.swift in Sources */,
 				2DF1C40C27CBDB4800D665AB /* LoginTextFieldView.swift in Sources */,
