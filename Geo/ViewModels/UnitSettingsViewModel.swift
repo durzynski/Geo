@@ -9,7 +9,7 @@ import Foundation
 
 struct UnitSettingsListViewModel {
     
-    var units: [String] = ["Kilometers", "Miles"]
+    var units: [String] = [K.ViewModelKeys.kilometers, K.ViewModelKeys.miles]
 }
 
 extension UnitSettingsListViewModel {
@@ -28,7 +28,7 @@ extension UnitSettingsListViewModel {
         
         let unit = PersistanceManager.shared.lengthUnit
         
-        if unit == "Meters" {
+        if unit == K.UserDefaultsKeys.meters {
             return 0
         } else {
             return 1

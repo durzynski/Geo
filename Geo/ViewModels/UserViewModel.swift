@@ -10,11 +10,11 @@ import Foundation
 struct UserViewModel {
     
     var name: String {
-        return UserDefaults.standard.string(forKey: "name") ?? ""
+        return UserDefaults.standard.string(forKey: K.UserDefaultsKeys.name) ?? ""
     }
 
     var email: String {
-        return UserDefaults.standard.string(forKey: "email") ?? ""
+        return UserDefaults.standard.string(forKey: K.UserDefaultsKeys.email) ?? ""
     }
     
     func myUser() -> User {

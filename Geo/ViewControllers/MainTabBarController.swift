@@ -16,10 +16,10 @@ class MainTabBarController: UITabBarController {
         
         UITabBar.appearance().tintColor = .systemGreen
         
-        let homeVC = createNavigationControllers(title: "Home", imageName: "house.fill", viewController: HomeViewController())
-        let mapVC = createNavigationControllers(title: "Map", imageName: "map.fill", viewController: MapViewController())
-        let listVC = createNavigationControllers(title: "List", imageName: "list.bullet", viewController: ListViewController())
-        let settingsVC = createNavigationControllers(title: "Settings", imageName: "gearshape.fill", viewController: SettingsViewController())
+        let homeVC = createNavigationControllers(title: K.MainTabBar.homeTitle, imageName: K.MainTabBar.homeImageName, viewController: HomeViewController())
+        let mapVC = createNavigationControllers(title: K.MainTabBar.mapTitle, imageName: K.MainTabBar.mapImageName, viewController: MapViewController())
+        let listVC = createNavigationControllers(title: K.MainTabBar.listTitle, imageName: K.MainTabBar.listImageName, viewController: ListViewController())
+        let settingsVC = createNavigationControllers(title: K.MainTabBar.settingsTitle, imageName: K.MainTabBar.settingsImageName, viewController: SettingsViewController())
         
         viewControllers = [homeVC, mapVC, listVC, settingsVC]
         

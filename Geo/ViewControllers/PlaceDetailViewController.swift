@@ -167,17 +167,17 @@ extension PlaceDetailViewController {
         
         titleLabel.text = viewModel.name
         
-        difficultyView.titleLabel.text = "Difficulty"
+        difficultyView.titleLabel.text = K.PlaceDetailVC.difficulty
         difficultyView.subtitleLabel.text = viewModel.difficulty
         difficultyView.subtitleLabel.textColor = viewModel.difficultyColor
         
-        sizeView.titleLabel.text = "Size"
+        sizeView.titleLabel.text = K.PlaceDetailVC.size
         sizeView.subtitleLabel.text = viewModel.size
         
-        hintView.titleLabel.text = "Hint"
+        hintView.titleLabel.text = K.PlaceDetailVC.hint
         hintView.subtitleLabel.text = viewModel.hint
         
-        descriptionView.titleLabel.text = "Description"
+        descriptionView.titleLabel.text = K.PlaceDetailVC.description
         descriptionView.subtitleLabel.text = viewModel.description
     }
     

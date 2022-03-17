@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.font = .rounded(ofSize: 24, weight: .medium)
         label.textColor = .label
-        label.text = "Explore places near you!"
+        label.text = K.HomeVC.exploreLabelText
         
         return label
     }()
@@ -54,7 +54,7 @@ class HomeViewController: UIViewController {
     
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: K.HomeVC.refreshControlText)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         return refreshControl
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        welcomeLabel.text = "Welcome \(userViewModel.name)"
+        welcomeLabel.text = "\(K.HomeVC.welcomeLabelText) \(userViewModel.name)"
         getUserLocation()
         
         DispatchQueue.main.async { [weak self] in
@@ -144,7 +144,7 @@ extension HomeViewController {
     
     func fetchData() {
         
-        DatabaseManager.shared.fetchPlaces { [weak self] places in
+        FirebaseManager.shared.fetchPlaces { [weak self] places in
 
             if let places = places {
                 self?.placesListViewModel.places = places

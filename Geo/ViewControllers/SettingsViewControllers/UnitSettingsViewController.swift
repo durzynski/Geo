@@ -19,7 +19,7 @@ class UnitSettingsViewController: UIViewController {
     private let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "UnitCell")
+        table.register(UITableViewCell.self, forCellReuseIdentifier: K.UnitSettingsVC.unitCellID)
         
         
         return table
@@ -42,7 +42,7 @@ class UnitSettingsViewController: UIViewController {
 extension UnitSettingsViewController {
     private func setupUI() {
         
-        title = "Units"
+        title = K.UnitSettingsVC.title
         view.backgroundColor = .systemBackground
         view.addSubview(tableView)
         
@@ -75,7 +75,7 @@ extension UnitSettingsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UnitCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.UnitSettingsVC.unitCellID, for: indexPath)
         
         let viewModel = unitSettingsListViewModel.unitAtIndex(indexPath.row)
         
@@ -97,11 +97,11 @@ extension UnitSettingsViewController: UITableViewDelegate, UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
 
         if indexPath.row == 0 {
-            PersistanceManager.shared.setupLengthUnit(unit: "Meters")
+            PersistanceManager.shared.setupLengthUnit(unit: K.UserDefaultsKeys.meters)
         } else if indexPath.row == 1 {
-            PersistanceManager.shared.setupLengthUnit(unit: "Miles")
+            PersistanceManager.shared.setupLengthUnit(unit: K.UserDefaultsKeys.miles)
         } else {
-            print("Nothing")
+            
         }
         
         let selectedCell = unitSettingsListViewModel.selectedUnitIndex()

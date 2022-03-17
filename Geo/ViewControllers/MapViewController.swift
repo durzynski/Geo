@@ -59,7 +59,7 @@ class MapViewController: UIViewController {
 extension MapViewController {
     private func setup() {
 
-        title = "Map"
+        title = K.MapVC.title
         
         view.addSubview(mapView)
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMarkerAnnotationView.self.description())
@@ -84,7 +84,7 @@ extension MapViewController {
     
     func fetchData() {
         
-        DatabaseManager.shared.fetchPlaces { [weak self] places in
+        FirebaseManager.shared.fetchPlaces { [weak self] places in
 
             if let places = places {
                 self?.placesListViewModel.places = places
@@ -155,7 +155,7 @@ extension MapViewController: MKMapViewDelegate {
             return nil
         }
         
-        let reuseIdentifier = "PlaceAnnotationView"
+        let reuseIdentifier = K.MapVC.annotationID
         
         var placeAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
@@ -172,7 +172,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         
         if let placeAnnotation = annotation as? PlaceMapAnnotation {
-            placeAnnotationView?.set(image: UIImage(systemName: "mappin.circle.fill") ?? UIImage(), with: placeAnnotation.color ?? UIColor.black)
+            placeAnnotationView?.set(image: UIImage(systemName: K.MapVC.annotationImageName) ?? UIImage(), with: placeAnnotation.color ?? UIColor.black)
             placeAnnotationView?.frame.size = CGSize(width: 30, height: 30)
         }
         

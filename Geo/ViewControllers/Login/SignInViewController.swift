@@ -42,7 +42,7 @@ class SignInViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(systemName: "shippingbox.fill")
+        imageView.image = UIImage(systemName: K.appLogoImageName)
         imageView.tintColor = .systemGreen
         
         return imageView
@@ -53,7 +53,7 @@ class SignInViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemGreen
         label.font = .rounded(ofSize: 40, weight: .semibold)
-        label.text = "Geo"
+        label.text = K.appName
         
         return label
     }()
@@ -72,7 +72,7 @@ class SignInViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         label.font = .rounded(ofSize: 24, weight: .semibold)
-        label.text = "Login"
+        label.text = K.Login.login
         
         return label
     }()
@@ -80,9 +80,9 @@ class SignInViewController: UIViewController {
     private let emailTextFieldView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.textFieldLabel.text = "Email"
+        view.textFieldLabel.text = K.Login.email
         
-        view.textField.placeholder = "Email"
+        view.textField.placeholder = K.Login.email
         view.textField.returnKeyType = .next
         view.textField.keyboardType = .emailAddress
         view.textField.isUserInteractionEnabled = true
@@ -93,9 +93,9 @@ class SignInViewController: UIViewController {
     private let passwordTextFieldView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.textFieldLabel.text = "Password"
+        view.textFieldLabel.text = K.Login.password
         
-        view.textField.placeholder = "Password"
+        view.textField.placeholder = K.Login.password
         view.textField.returnKeyType = .done
         view.textField.isSecureTextEntry = true
         view.textField.isUserInteractionEnabled = true
@@ -111,7 +111,7 @@ class SignInViewController: UIViewController {
         button.configuration?.baseBackgroundColor = .systemGreen
         button.configuration?.baseForegroundColor = .systemBackground
         button.configuration?.buttonSize = .large
-        button.setTitle("Sing in", for: [])
+        button.setTitle(K.signIn, for: [])
         button.addTarget(self, action: #selector(signInTapped), for: .touchUpInside)
 
         return button
@@ -127,7 +127,7 @@ class SignInViewController: UIViewController {
         button.layer.cornerRadius = 8
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.systemGreen.cgColor
-        button.setTitle("No account yet? Sign up", for: [])
+        button.setTitle(K.Login.signInButtonTitleText, for: [])
         button.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
 
         return button
@@ -200,7 +200,7 @@ extension SignInViewController {
 extension SignInViewController {
     @objc func signInTapped() {
         
-        AuthManager.shared.signIn(email: email, password: password) {  [weak self] result in
+        AuthManager.shared.signIn(email: email, password: password) { [weak self] result in
             switch result {
             case .success:
                 
@@ -208,7 +208,7 @@ extension SignInViewController {
                 self?.delegate?.didSignIn()
 
             case .failure(_):
-                self?.presentSignInError(title: "Sign In Error", message: "Your email or password is incorrect. Please try again.")
+                self?.presentSignInError(title: K.Login.signInErrorTitleText, message: K.Login.signInErrorMessageText)
             }
         }
         
@@ -228,8 +228,6 @@ extension SignInViewController {
 //MARK: - TextField Delegate
 
 extension SignInViewController: UITextFieldDelegate {
-    
-    
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {

@@ -30,7 +30,7 @@ struct AuthManager {
     
     public func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         
-        DatabaseManager.shared.findUser(with: email) { user in
+        FirebaseManager.shared.findUser(with: email) { user in
             guard let user = user else {
                 completion(.failure(AuthError.signInFailed))
                 return
@@ -62,7 +62,7 @@ struct AuthManager {
                 return
             }
             
-            DatabaseManager.shared.createNewUser(newUser: newUser) { success in
+            FirebaseManager.shared.createNewUser(newUser: newUser) { success in
              
                 if success {
                     completion(.success(newUser))

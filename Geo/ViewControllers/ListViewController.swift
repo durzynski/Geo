@@ -21,9 +21,9 @@ class ListViewController: UIViewController {
         return table
     }()
     
-    private let resfreshControl: UIRefreshControl = {
+    private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: K.ListVC.refreshControlText)
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         return refreshControl
@@ -56,7 +56,7 @@ class ListViewController: UIViewController {
 extension ListViewController {
     private func setup() {
         
-        title = "List"
+        title = K.ListVC.title
         
         view.addSubview(listTableView)
 
@@ -81,14 +81,14 @@ extension ListViewController {
     
     func fetchData() {
         
-        DatabaseManager.shared.fetchPlaces { [weak self] places in
+        FirebaseManager.shared.fetchPlaces { [weak self] places in
 
             if let places = places {
                 self?.placesListViewModel.places = places
                 
                 DispatchQueue.main.async {
                     self?.listTableView.reloadData()
-                    self?.resfreshControl.endRefreshing()
+                    self?.refreshControl.endRefreshing()
                 }
             }
         }
@@ -115,11 +115,11 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         listTableView.register(EmptyTableViewCell.self, forCellReuseIdentifier: EmptyTableViewCell.identifier)
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.addSubview(resfreshControl)
+        listTableView.addSubview(refreshControl)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "All places"
+        return K.ListVC.allPlacesSectionHeaderText
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

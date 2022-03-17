@@ -8,9 +8,16 @@
 import Foundation
 import Firebase
 
-struct DatabaseManager {
+struct FirebaseManager {
     
-    static let shared = DatabaseManager()
+    static let shared = FirebaseManager()
+    
+    struct Keys {
+        
+        static let places = "places"
+        static let users = "users"
+        
+    }
     
     private init() {}
     
@@ -18,7 +25,7 @@ struct DatabaseManager {
     
     public func fetchPlaces(completion: @escaping ([Place]?) -> Void) {
         
-        let reference = database.collection("places")
+        let reference = database.collection(Keys.places)
         
         reference.getDocuments { querySnapshot, error in
             
@@ -35,7 +42,7 @@ struct DatabaseManager {
     
     public func findUser(with email: String, completion: @escaping (User?) -> Void) {
         
-        let reference = database.collection("users").document(email)
+        let reference = database.collection(Keys.users).document(email)
         
         reference.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -52,7 +59,7 @@ struct DatabaseManager {
     
     public func createNewUser(newUser: User, completion: @escaping (Bool) -> Void) {
         
-        let reference = database.document("users/\(newUser.email)")
+        let reference = database.document("\(Keys.users)/\(newUser.email)")
         
         guard let data = newUser.asDictionary() else {
             completion(false)

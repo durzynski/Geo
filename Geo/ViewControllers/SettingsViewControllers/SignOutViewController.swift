@@ -25,7 +25,7 @@ class SignOutViewController: UIViewController {
         button.configuration?.baseBackgroundColor = .systemRed
         button.configuration?.baseForegroundColor = .systemRed
         button.configuration?.buttonSize = .large
-        button.setTitle("Sing out", for: [])
+        button.setTitle(K.signOut, for: [])
         button.addTarget(self, action: #selector(signOutTapped), for: .touchUpInside)
 
         return button

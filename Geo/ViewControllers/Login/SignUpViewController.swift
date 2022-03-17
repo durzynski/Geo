@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(systemName: "shippingbox.fill")
+        imageView.image = UIImage(systemName: K.appLogoImageName)
         imageView.tintColor = .systemGreen
         
         return imageView
@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .systemGreen
         label.font = .rounded(ofSize: 40, weight: .semibold)
-        label.text = "Geo"
+        label.text = K.appName
         
         return label
     }()
@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
         label.font = .rounded(ofSize: 24, weight: .semibold)
-        label.text = "Register"
+        label.text = K.Login.register
         
         return label
     }()
@@ -78,9 +78,9 @@ class SignUpViewController: UIViewController {
     private let emailTextFieldView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.textFieldLabel.text = "Email"
+        view.textFieldLabel.text = K.Login.email
         
-        view.textField.placeholder = "Email"
+        view.textField.placeholder = K.Login.email
         view.textField.returnKeyType = .next
         view.textField.isUserInteractionEnabled = true
         
@@ -90,9 +90,9 @@ class SignUpViewController: UIViewController {
     private let nameTextFieldView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.textFieldLabel.text = "Name"
+        view.textFieldLabel.text = K.Login.name
         
-        view.textField.placeholder = "Name"
+        view.textField.placeholder = K.Login.name
         view.textField.returnKeyType = .next
         view.textField.isUserInteractionEnabled = true
         
@@ -102,9 +102,9 @@ class SignUpViewController: UIViewController {
     private let passwordTextFieldView: LoginTextFieldView = {
         let view = LoginTextFieldView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.textFieldLabel.text = "Password"
+        view.textFieldLabel.text = K.Login.password
         
-        view.textField.placeholder = "Password"
+        view.textField.placeholder = K.Login.password
         view.textField.returnKeyType = .done
         view.textField.isSecureTextEntry = true
         view.textField.isUserInteractionEnabled = true
@@ -119,7 +119,7 @@ class SignUpViewController: UIViewController {
         button.configuration?.baseBackgroundColor = .systemGreen
         button.configuration?.baseForegroundColor = .systemBackground
         button.configuration?.buttonSize = .large
-        button.setTitle("Sing up", for: [])
+        button.setTitle(K.signUp, for: [])
         button.addTarget(self, action: #selector(signUpTapped), for: .touchUpInside)
 
         return button
@@ -194,22 +194,22 @@ extension SignUpViewController {
         
         if !email.isValidEmail() {
             
-            title = "Incorrect email address"
-            message = "The email you entered is incorrect. Please try again."
+            title = K.Login.signUpErrorEmailTitleText
+            message = K.Login.signUpErrorEmailMessageText
             presentSignUpError(title: title, message: message)
             return
         }
         
         if !name.isValidName() {
-            title = "Incorrect username"
-            message = "The username you entered is incorrect. Please try again."
+            title = K.Login.signUpErrorNameTitleText
+            message = K.Login.signUpErrorNameMessageText
             presentSignUpError(title: title, message: message)
             return
         }
         
         if !password.isValidPassword() {
-            title = "Incorrect password"
-            message = "The password you entered is incorrect. Please try again."
+            title = K.Login.signUpErrorPassowordTitleText
+            message = K.Login.signUpErrorPassowordMessageText
             presentSignUpError(title: title, message: message)
             return
         }

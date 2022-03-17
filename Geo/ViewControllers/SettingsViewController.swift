@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController {
     func styleUI() {
-        title = "Settings"
+        title = K.SettingsVC.title
         
         view.addSubview(tableView)
     }
@@ -53,18 +53,18 @@ extension SettingsViewController {
         
         settingsListViewModel.sections =  [
             
-            SettingsSection(title: "Preferences", options: [
+            SettingsSection(title: K.SettingsVC.preferencesSectionText, options: [
                 
-                SettingsOption(title: "Units", icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemBlue, handler: { [weak self] in
+                SettingsOption(title: K.SettingsVC.unitsOptionText, icon: UIImage(systemName: "") ?? UIImage(), iconBackgroundColor: .systemBlue, handler: { [weak self] in
                     let vc = UnitSettingsViewController()
                     
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }),
             ]),
             
-            SettingsSection(title: "User", options: [
+            SettingsSection(title: K.SettingsVC.userSectionText, options: [
                 
-                SettingsOption(title: "Sign out", icon: UIImage(systemName: "person.fill") ?? UIImage(), iconBackgroundColor: .systemRed, handler: { [weak self] in
+                SettingsOption(title: K.SettingsVC.signOutOptionText, icon: UIImage(systemName: K.SettingsVC.signOutOptionImageName) ?? UIImage(), iconBackgroundColor: .systemRed, handler: { [weak self] in
                     
                     let vc = SignOutViewController()
                     

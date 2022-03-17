@@ -50,7 +50,7 @@ class OnboardingViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = .filled()
         button.configuration?.imagePadding = 8
-        button.setTitle("Next", for: [])
+        button.setTitle(K.OnboardingVC.next, for: [])
         button.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
         button.configuration?.baseBackgroundColor = .systemGreen
         button.configuration?.buttonSize = .large
@@ -132,7 +132,7 @@ extension OnboardingViewController {
             collectionView.isPagingEnabled = true
             
             if slideIndex == slidesCount {
-                nextButton.setTitle("Get Started", for: [])
+                nextButton.setTitle(K.OnboardingVC.getStarted, for: [])
             }
         }
         

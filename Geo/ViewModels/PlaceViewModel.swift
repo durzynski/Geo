@@ -74,11 +74,11 @@ extension PlaceViewModel {
     
     var difficultyColor: UIColor {
         switch difficulty {
-        case "Easy":
+        case K.ViewModelKeys.easy:
             return .systemGreen
-        case "Medium":
+        case K.ViewModelKeys.medium:
             return .systemYellow
-        case "Hard":
+        case K.ViewModelKeys.hard:
             return .systemRed
         default:
             return .label
@@ -136,7 +136,7 @@ extension PlaceViewModel {
         let unit = PersistanceManager.shared.lengthUnit
 
         switch unit {
-        case "Meters":
+        case K.UserDefaultsKeys.meters:
             
             if distanceValue >= 1000 {
                 let resultAsKm = Double(distanceValue)/1000
@@ -146,7 +146,7 @@ extension PlaceViewModel {
             
             return "Distance: \(distanceValue)m"
         
-        case "Miles":
+        case K.UserDefaultsKeys.miles:
             
             let resultString = String(format: "%.2f", distanceValueInMiles)
             
