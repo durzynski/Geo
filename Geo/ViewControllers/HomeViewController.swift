@@ -234,7 +234,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
             let vc = PlaceDetailViewController(viewModel: viewModel)
             let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .fullScreen
             
             present(navVC, animated: true)
         }

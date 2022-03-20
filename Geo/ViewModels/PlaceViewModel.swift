@@ -13,7 +13,7 @@ import UIKit
 
 struct PlaceListViewModel {
     var places: [Place] = [] 
-    
+    var savedPlaces: [Places] = []
 }
 
 extension PlaceListViewModel {
@@ -48,8 +48,23 @@ extension PlaceListViewModel {
         return sorted[index]
     }
     
+    func placeAtIndexFromCoreData(_ index: Int) -> PlaceViewModel {
+        
+        let places = self.savedPlaces[index]
+        let place = Place(name: places.name ?? "",
+                          difficulty: places.difficulty ?? "",
+                          hint: places.hint ?? "",
+                          description: places.placeDescription ?? "",
+                          latitude: places.latitude,
+                          longitude: places.longitude,
+                          size: places.size ?? "")
+        
+        return PlaceViewModel(place)
+    }
     
-    
+    func numberOfRowsInSectionCoreData(_ section: Int) -> Int {
+        return self.savedPlaces.count
+    }
 }
 
 //MARK: - Single Element
@@ -160,9 +175,31 @@ extension PlaceViewModel {
         default:
             return ""
         }
-        
-
-        
     }
+    
+    //MARK: - CoreData
+   
+   func save(with viewModel: PlaceViewModel) {
+       let manager = CoreDataManager.shared
+       
+       let viewModel = viewModel
+       let place = Places(context: manager.persistentContainer.viewContext)
+       
+       place.name = viewModel.name
+       place.placeDescription = viewModel.description
+       place.size = viewModel.size
+       place.hint = viewModel.hint
+       place.latitude = viewModel.latitude
+       place.longitude = viewModel.longitude
+       place.difficulty = viewModel.difficulty
+       
+//       if CoreDataManager.shared.placeExists(name: viewModel.name) {
+//           return
+//       }
+       
+       manager.save()
+   }
+    
+    
     
 }

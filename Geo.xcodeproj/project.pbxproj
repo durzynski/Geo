@@ -28,6 +28,9 @@
 		2D4D058927E2199300F3FAFE /* UnitSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058827E2199300F3FAFE /* UnitSettingsViewModel.swift */; };
 		2D4D058D27E3574700F3FAFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058C27E3574700F3FAFE /* Constants.swift */; };
 		2D4D058F27E3676000F3FAFE /* DividerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D058E27E3676000F3FAFE /* DividerView.swift */; };
+		2D4D059227E39F4300F3FAFE /* PlacesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D059027E39F4300F3FAFE /* PlacesDataModel.xcdatamodeld */; };
+		2D4D059427E39FA100F3FAFE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D059327E39FA100F3FAFE /* CoreDataManager.swift */; };
+		2D4D059627E3AADA00F3FAFE /* SavedPlacesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4D059527E3AADA00F3FAFE /* SavedPlacesListViewController.swift */; };
 		2D635C4627D01A570048D75E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D635C4527D01A570048D75E /* GoogleService-Info.plist */; };
 		2D635C4827D01F830048D75E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4727D01F820048D75E /* User.swift */; };
 		2D635C4A27D020CA0048D75E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D635C4927D020CA0048D75E /* FirebaseManager.swift */; };
@@ -74,6 +77,9 @@
 		2D4D058827E2199300F3FAFE /* UnitSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSettingsViewModel.swift; sourceTree = "<group>"; };
 		2D4D058C27E3574700F3FAFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2D4D058E27E3676000F3FAFE /* DividerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerView.swift; sourceTree = "<group>"; };
+		2D4D059127E39F4300F3FAFE /* PlacesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlacesDataModel.xcdatamodel; sourceTree = "<group>"; };
+		2D4D059327E39FA100F3FAFE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2D4D059527E3AADA00F3FAFE /* SavedPlacesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlacesListViewController.swift; sourceTree = "<group>"; };
 		2D635C4527D01A570048D75E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2D635C4727D01F820048D75E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D635C4927D020CA0048D75E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				2D47594A27D109C000333474 /* HomeViewController.swift */,
 				2D47595C27D6CF6E00333474 /* MapViewController.swift */,
 				2D47595E27D6CFEC00333474 /* ListViewController.swift */,
+				2D4D059527E3AADA00F3FAFE /* SavedPlacesListViewController.swift */,
 				2D47594827D108A700333474 /* SettingsViewController.swift */,
 				2D4D04D727D840B200F3FAFE /* SettingsViewControllers */,
 				2D47595627D2689E00333474 /* PlaceDetailViewController.swift */,
@@ -223,6 +230,7 @@
 				2DF1C3E327C913A600D665AB /* Info.plist */,
 				2DF1C3FE27CA481E00D665AB /* LottieAnimations */,
 				2DF1C3DE27C913A600D665AB /* Assets.xcassets */,
+				2D4D059027E39F4300F3FAFE /* PlacesDataModel.xcdatamodeld */,
 			);
 			name = Others;
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 				2DF1C41127CD139400D665AB /* PersistanceManager.swift */,
 				2DF1C41327CD2F1B00D665AB /* AuthManager.swift */,
 				2D635C4927D020CA0048D75E /* FirebaseManager.swift */,
+				2D4D059327E39FA100F3FAFE /* CoreDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -417,6 +426,7 @@
 				2D02954227D7EE5F00E2E8C0 /* EmptyTableViewCell.swift in Sources */,
 				2D47595327D23BF300333474 /* PlacesTableViewCell.swift in Sources */,
 				2D4D04D627D8358B00F3FAFE /* SettingsViewModel.swift in Sources */,
+				2D4D059227E39F4300F3FAFE /* PlacesDataModel.xcdatamodeld in Sources */,
 				2DF1C41227CD139400D665AB /* PersistanceManager.swift in Sources */,
 				2DF1C41427CD2F1B00D665AB /* AuthManager.swift in Sources */,
 				2D4D058F27E3676000F3FAFE /* DividerView.swift in Sources */,
@@ -435,6 +445,7 @@
 				2D635C4C27D02A9E0048D75E /* MainTabBarController.swift in Sources */,
 				2D47595927D3BEC300333474 /* TitleAndSubtitleView.swift in Sources */,
 				2D4D058727E2190100F3FAFE /* UnitSettingsViewController.swift in Sources */,
+				2D4D059427E39FA100F3FAFE /* CoreDataManager.swift in Sources */,
 				2DF1C3D627C913A400D665AB /* AppDelegate.swift in Sources */,
 				2DF1C40327CA93E500D665AB /* Extensions.swift in Sources */,
 				2D4D058927E2199300F3FAFE /* UnitSettingsViewModel.swift in Sources */,
@@ -444,6 +455,7 @@
 				2DF1C3FD27CA2E5C00D665AB /* OnboardingCollectionViewCell.swift in Sources */,
 				2D47595F27D6CFEC00333474 /* ListViewController.swift in Sources */,
 				2D02954027D71BD400E2E8C0 /* PlaceMapAnnotation.swift in Sources */,
+				2D4D059627E3AADA00F3FAFE /* SavedPlacesListViewController.swift in Sources */,
 				2DF1C3F727CA249900D665AB /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +670,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D4D059027E39F4300F3FAFE /* PlacesDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D4D059127E39F4300F3FAFE /* PlacesDataModel.xcdatamodel */,
+			);
+			currentVersion = 2D4D059127E39F4300F3FAFE /* PlacesDataModel.xcdatamodel */;
+			path = PlacesDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2DF1C3CA27C913A400D665AB /* Project object */;
 }

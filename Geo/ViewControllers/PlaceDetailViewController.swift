@@ -122,7 +122,7 @@ extension PlaceDetailViewController {
 extension PlaceDetailViewController {
     func setupNavigation() {
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissView))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTapped))
         
     }
 }
@@ -155,8 +155,15 @@ extension PlaceDetailViewController {
 
 extension PlaceDetailViewController {
     
-    @objc func dismissView() {
-        self.dismiss(animated: true, completion: nil)
+    @objc func saveTapped() {
+        
+        guard let viewModel = viewModel else {
+            return
+        }
+        
+        viewModel.save(with: viewModel)
+        
+        print(CoreDataManager.shared.fetchPlaces())
     }
     
 }

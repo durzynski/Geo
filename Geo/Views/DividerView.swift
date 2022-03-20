@@ -11,7 +11,7 @@ import UIKit
 class DividerView: UIView {
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 2))
+        super.init(frame: .zero)
         
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .secondarySystemBackground

@@ -37,6 +37,7 @@ class ListViewController: UIViewController {
         
         setup()
         layout()
+        setupNavigationBar()
         
         configureTableView()
     }
@@ -73,6 +74,11 @@ extension ListViewController {
             
         ])
     }
+    
+    func setupNavigationBar() {
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: K.ListVC.navBarButtonImageName), style: .plain, target: self, action: #selector(presentSavedPlaces))
+    }
 }
 
 //MARK: - Fetch Places
@@ -102,6 +108,14 @@ extension ListViewController {
     
     @objc func refresh() {
         fetchData()
+    }
+    
+    @objc func presentSavedPlaces() {
+        
+        let vc = SavedPlacesListViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }
@@ -171,7 +185,6 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
 
             let vc = PlaceDetailViewController(viewModel: viewModel)
             let navVC = UINavigationController(rootViewController: vc)
-            navVC.modalPresentationStyle = .fullScreen
             
             present(navVC, animated: true)
         }

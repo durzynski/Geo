@@ -86,6 +86,7 @@ struct K {
         static let title = "List"
         static let refreshControlText = "Pull to refresh"
         static let allPlacesSectionHeaderText = "All places"
+        static let navBarButtonImageName = "bookmark"
     }
     
     struct SettingsVC {
